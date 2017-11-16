@@ -1,0 +1,1079 @@
+.borderLine
+{
+    border: 1px solid black;
+}
+
+
+
+.navfont{
+    font-size: 18px;
+}
+
+
+.shadow{
+    text-shadow: 0px 3px 5px rgba(35, 31, 32, 0.35);
+}
+
+.boxshadow{
+    box-shadow: 0px 3px 5px rgba(35, 31, 32, 0.35);
+}
+
+.Wt-icon {
+  margin-right: 4px;
+  background-repeat: no-repeat;
+  background-position: center left;
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  line-height: 14px;
+  vertical-align: text-top;
+}
+
+
+.navbar-brand
+{
+    font-size:26px;
+}
+
+
+.header {
+    background-color: #58738b;
+}
+
+
+
+.headerTitle {
+  font-family: "Tahoma";
+  color: rgb(255, 255, 255);
+  font-weight: normal;
+}
+
+
+
+.mogatSubTitle
+{
+    font-size: 16px;
+}
+
+
+/*ROOT*/
+/* Home Sayfasında Root Background*/
+.rootBody{
+    top:    0px;
+    bottom: 0px;
+    right:  0px;
+    left:   0px;
+    background: url('http://serik.mescomedia.com/img/Background.jpg') repeat 0 0;
+    background-size:cover;
+/*    position:fixed;*/
+}
+
+/*ROOT END*/
+
+
+/*HOME*/
+.homeimg
+{
+    width:100%;
+    overflow:hidden;
+}
+
+.outComes
+{
+    font-size:28px;
+    font-weight:bold;
+    text-shadow:2px 2px 10px #999999;
+    text-align:justify;
+}
+
+.outcomesproject
+{
+    width:300px;
+    height:250px;
+    overflow:hidden;
+    min-width:300px;
+    display:block;
+    text-align:center;
+}
+
+.scopeproject
+{
+    width:100%;
+    overflow:hidden;
+    max-width:600px;
+    display:block;
+}
+
+.outcomesprojectmobile
+{
+    width:300px;
+    height:250px;
+    overflow:hidden;
+    min-width:300px;
+    display:none;
+    text-align:center;
+}
+
+.homeText
+{
+    font-size:16px;
+    font-weight:normal;
+    text-shadow:2px 2px 10px #dddddd;
+}
+
+.objectives
+{
+    text-align:justify;
+}
+
+.objectivesimg
+{
+    width:100%;
+    height:auto;
+    display:block;
+    max-width:450px;
+}
+
+.abouttext
+{
+    text-align:justify;
+}
+
+.contentStack
+{
+/*    height:100%!important;*/
+/*    min-height:100%!important;*/
+    position: relative;
+    border: 1px solid black;
+    display:block;
+}
+/*HOME End */
+
+
+
+/*FOOTER*/
+
+.footer
+{
+    background-color:rgb(33,33,33);
+    color:white;
+    position:fixed;
+    bottom:-3px;
+    font-size: 12px;
+    margin:0px 0px 0px 0px;
+    left:0px;
+    right:0px;
+}
+
+/*FOOTER*/
+
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+
+    .headerTitle {
+      font-size: 24px;
+      max-height: 77px;
+      padding-top:0px;
+      margin-top:0px;
+      padding-bottom:0px;
+      margin-bottom:0px;
+    }
+
+    .header {
+        min-height:77px;
+        max-height:77px;
+        padding-top:0px;
+        margin-top:0px;
+    }
+
+    .homeText
+    {
+        text-align:justify;
+    }
+
+    .euroflag
+    {
+        background: url('http://serik.mescomedia.com/img/euflag.jpg');
+        background-size:cover;
+        width: 107px;
+        height:70px;
+        background-repeat:   no-repeat;
+        background-position: center center;
+    }
+
+    .mainContainer{
+        height:100%;
+        width:100%;
+        max-width:900px;
+        align-content:center;
+        display:block;
+    }
+
+    .MobileFlagWidget{
+        display: none!important;
+    }
+
+    .DesktopFlagWidget{
+        display:flex!important;
+        margin:0px 0px 0px 0px !important;
+        padding: 0px 0px 0px 0px !important;
+        max-height:28px;
+    }
+
+    .introBody{
+        height: 100%;
+        display:blocks;
+        margin:auto;
+        min-height:700px;
+    }
+
+    .MogatTitle{
+        font-size: 84px;
+        font-weight:bold;
+    }
+
+    .MogatDes{
+        font-size: 34px;
+        text-align:center;
+        color:white;
+        max-width:1200px;
+    }
+
+    .MogatEnt{
+        font-size: 64px;
+        text-align:center;
+        color:white;
+        font-weight:lighter;
+        font-family:"Tahoma";
+        transition: ease-in-out 0.25s;
+        border: 2px solid rgba(255,255,255,1);
+        border-radius: 25px;
+        margin-left:10px;
+        margin-right:10px;
+        padding-right:20px;
+        padding-left:20px;
+        background-color:rgba(255,255,255,0);
+    }
+
+    .MogatEnt:hover{
+        cursor:pointer;
+        border: 2px solid rgba(255,255,255,1);
+        border-radius: 25px;
+        color:black;
+        background-color:rgba(255,255,255,1);
+    }
+
+    .MogatEnt:active{
+        color:white;
+        background-color:rgba(0,0,0,1);
+    }
+
+
+
+
+    .mogatSubTitle
+    {
+        font-size: 16px;
+    }
+
+    .legalNotice{
+        display:flex;
+    }
+
+
+
+    .introMain{
+        top:0px;
+        bottom:0px;
+        right:0px;
+        left:0px;
+        background: #8997a4 url('http://serik.mescomedia.com/img/tumblr_static_bg3.png') repeat 0 0;
+        -webkit-animation: 30s linear 0s normal none infinite animate;
+        -moz-animation: 30s linear 0s normal none infinite animate;
+        -ms-animation: 30s linear 0s normal none infinite animate;
+        -o-animation: 30s linear 0s normal none infinite animate;
+        animation: 30s linear 0s normal none infinite animate;
+    }
+
+
+
+    .MogatLogo
+    {
+        background: url('http://serik.mescomedia.com/img/Logo1.png');
+        background-size:cover;
+        width: 107px;
+        height:212px;
+        background-repeat:   no-repeat;
+        background-position: center center;
+    }
+
+    .flagwidget
+    {
+        display:flex!important;
+    }
+
+    .flagwidgetLandScape
+    {
+        display:none!important;
+    }
+
+
+
+
+
+.device0{
+    display:block;
+    position:fixed;
+    bottom:0px;
+    color:white;
+    font-weight:bold;
+    background-color: red;
+}
+.device1{
+    display:none;
+}
+.device2{
+    display:none;
+}
+.device3{
+    display:none;
+}
+.device4{
+    display:none;
+}
+
+
+}
+
+
+
+
+
+
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+    .headerTitle {
+      font-size: 34px;
+      max-height: 77px;
+      padding-top:0px;
+      margin-top:0px;
+      padding-bottom:0px;
+      margin-bottom:0px;
+    }
+
+    .header {
+        max-height:77px;
+        padding-top:0px;
+        margin-top:0px;
+    }
+
+    .homeText
+    {
+        text-align:justify;
+    }
+
+    .MobileFlagWidget{
+        display: none!important;
+    }
+
+    .DesktopFlagWidget{
+        display: flex!important;
+    }
+
+    .introBody{
+        height: 100%;
+        display:blocks;
+        margin:auto;
+        min-height:600px;
+    }
+
+    .MogatTitle{
+        font-size: 84px;
+        font-weight:bold;
+    }
+
+    .MogatDes{
+        font-size: 34px;
+        text-align:center;
+        color:white;
+        max-width:1024px;
+    }
+
+
+
+
+    .mogatSubTitle
+    {
+        font-size: 16px;
+    }
+
+    .legalNotice{
+        display:flex;
+    }
+
+
+    .MogatEnt{
+        font-size: 64px;
+        text-align:center;
+        color:white;
+        font-weight:lighter;
+        font-family:"Tahoma";
+        transition: ease-in-out 0.25s;
+        border: 2px solid rgba(255,255,255,1);
+        border-radius: 25px;
+        margin-left:10px;
+        margin-right:10px;
+        padding-right:20px;
+        padding-left:20px;
+        background-color:rgba(255,255,255,0);
+    }
+
+    .MogatEnt:hover{
+        cursor:pointer;
+        border: 2px solid rgba(255,255,255,1);
+        border-radius: 25px;
+        color:black;
+        background-color:rgba(255,255,255,1);
+    }
+
+    .MogatEnt:active{
+        color:white;
+        background-color:rgba(0,0,0,1);
+    }
+
+
+    .introMain{
+        background: #8997a4;
+    }
+
+    .euroflag
+    {
+        background: url('http://serik.mescomedia.com/img/euflag.jpg');
+        background-size:cover;
+        width: 107px;
+        height:70px;
+        background-repeat:   no-repeat;
+        background-position: center center;
+    }
+
+    .MogatLogo
+    {
+        background: url('http://serik.mescomedia.com/img/Logo1.png');
+        background-size:cover;
+        width: 60px;
+        height:121px;
+        background-repeat:   no-repeat;
+        background-position: center center;
+    }
+
+    .flagwidget
+    {
+        display:none!important;
+    }
+
+    .flagwidgetLandScape
+    {
+        display:flex!important;
+    }
+
+
+    .device0{
+        display:none;
+    }
+    .device1{
+        display:block;
+        position:fixed;
+        bottom:0px;
+        color:white;
+        font-weight:bold;
+        background-color: green;
+    }
+    .device2{
+        display:none;
+    }
+    .device3{
+        display:none;
+    }
+    .device4{
+        display:none;
+    }
+
+
+}
+
+
+
+
+
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .headerTitle {
+          font-size: 38px;
+          max-height: 77px;
+          padding-top:0px;
+          margin-top:0px;
+          padding-bottom:0px;
+          margin-bottom:0px;
+          line-height:35px;
+    }
+
+    .header {
+        max-height:77px;
+        padding-top:0px;
+        margin-top:0px;
+    }
+
+/*HOME PAGE*/
+
+.outcomesproject
+{
+    display:none;
+}
+
+.outcomesprojectmobile
+{
+    display:block;
+}
+
+.homeText
+{
+    text-align:justify;
+}
+
+/***********/
+
+    .MobileFlagWidget{
+        display: flex!important;
+    }
+
+    .DesktopFlagWidget{
+        display: none!important;
+    }
+
+    .introBody{
+        height: 100%;
+        display:blocks;
+        margin:auto;
+        min-height:800px;
+    }
+
+    .MogatTitle{
+        font-size: 84px;
+        font-weight:bold;
+    }
+
+    .MogatDes{
+        font-size: 34px;
+        text-align:center;
+        color:white;
+        max-width:1024px;
+    }
+
+
+
+    .mogatSubTitle
+    {
+        font-size: 16px;
+    }
+
+    .legalNotice{
+        display:flex;
+    }
+
+
+    .MogatEnt{
+        font-size: 64px;
+        text-align:center;
+        color:white;
+        font-weight:lighter;
+        font-family:"Tahoma";
+        transition: ease-in-out 0.25s;
+        border: 2px solid rgba(255,255,255,1);
+        border-radius: 25px;
+        margin-left:10px;
+        margin-right:10px;
+        padding-right:20px;
+        padding-left:20px;
+        background-color:rgba(255,255,255,0);
+    }
+
+    .MogatEnt:hover{
+        cursor:pointer;
+        border: 2px solid rgba(255,255,255,1);
+        border-radius: 25px;
+        color:black;
+        background-color:rgba(255,255,255,1);
+    }
+
+    .MogatEnt:active{
+        color:white;
+        background-color:rgba(0,0,0,1);
+    }
+
+
+    .introMain{
+        background: #8997a4;
+    }
+
+    .euroflag
+    {
+        background: url('http://serik.mescomedia.com/img/euflag.jpg');
+        background-size:cover;
+        width: 107px;
+        height:70px;
+        background-repeat:   no-repeat;
+        background-position: center center;
+        overflow:hidden;
+    }
+
+    .MogatLogo
+    {
+        background: url('http://serik.mescomedia.com/img/Logo1.png');
+        background-size:cover;
+        width: 60px;
+        height:121px;
+        background-repeat:   no-repeat;
+        background-position: center center;
+    }
+
+    .flagwidget
+    {
+        display:none!important;
+    }
+
+    .flagwidgetLandScape
+    {
+        display:flex!important;
+    }
+
+
+    .device0{
+        display:none;
+    }
+    .device1{
+        display:none;
+    }
+    .device2{
+        display:block;
+        position:fixed;
+        bottom:0px;
+        color:white;
+        font-weight:bold;
+        background-color: blue;
+    }
+    .device3{
+        display:none;
+    }
+    .device4{
+        display:none;
+    }
+
+
+}
+
+
+
+
+
+
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+
+    .headerTitle {
+        font-size:        28px;
+        font-weight:      normal;
+        padding-top:      0px;
+        margin-top:       0px;
+        padding-bottom:   0px;
+        margin-bottom:    0px;
+        color:            white;
+        max-width:        100px;
+        text-align:       left;
+    }
+
+    .header {
+
+    }
+
+
+/*HOME PAGE*/
+
+.outcomesproject
+{
+    display:none;
+}
+
+.outcomesprojectmobile
+{
+    display:block;
+}
+
+.homeText
+{
+    text-align:justify;
+}
+
+/***********/
+
+
+    .MobileFlagWidget{
+        display: none!important;
+        margin:0px 0px 0px 0px !important;
+        padding: 0px 0px 0px 0px !important;
+        max-height:28px;
+    }
+
+    .DesktopFlagWidget{
+        display: flex!important;
+    }
+
+    .euroflag
+    {
+        background: url('http://serik.mescomedia.com/img/euflag.jpg');
+        background-size:cover;
+        width: 75px;
+        height:50px;
+        background-repeat:   no-repeat;
+        background-position: center center;
+    }
+
+    .MogatLogo
+    {
+        background: url('http://serik.mescomedia.com/img/Logo1.png');
+        background-size:cover;
+        width: 29px;
+        height:58px;
+        background-repeat:   no-repeat;
+        background-position: center center;
+    }
+
+
+
+
+    .flagwidget
+    {
+        display:none!important;
+    }
+
+    .flagwidgetLandScape
+    {
+        display:flex!important;
+        padding-left:auto;
+        margin-left:auto;
+        position:relative;
+        text-align:center;
+        right:0px!important;
+        position:inherit;
+    }
+
+
+    .introMain{
+        background: #8997a4;
+    }
+
+
+
+
+    .mogatSubTitle
+    {
+        font-size: 14px;
+    }
+
+    .legalNotice{
+        display:none;
+    }
+
+    .MogatEnt{
+        font-size: 30px;
+        text-align:center;
+        color:white;
+        font-weight:lighter;
+        font-family:"Tahoma";
+        transition: ease-in-out 0.25s;
+        border: 2px solid rgba(255,255,255,1);
+        border-radius: 15px;
+        margin-left:10px;
+        margin-right:10px;
+        padding-right:20px;
+        padding-left:20px;
+        background-color:rgba(255,255,255,0);
+    }
+
+    .MogatEnt:hover{
+        cursor:pointer;
+        border: 2px solid rgba(255,255,255,1);
+        color:black;
+        background-color:rgba(255,255,255,1);
+    }
+
+    .MogatEnt:active{
+        color:white;
+        background-color:rgba(0,0,0,1);
+    }
+
+    .MogatDes{
+        font-size: 16px;
+        text-align:center;
+        color:white;
+        max-width:1200px;
+    }
+
+    .MogatTitle{
+        font-size: 34px;
+        font-weight:bold;
+    }
+
+    .langbtn
+    {
+        border-radius:0px;
+    }
+
+
+
+.device0{
+    display:none;
+}
+.device1{
+    display:none;
+}
+.device2{
+    display:none;
+}
+.device3{
+    display:block;
+    position:fixed;
+    bottom:0px;
+    color:white;
+    font-weight:bold;
+    background-color: black;
+}
+.device4{
+    display:none;
+}
+
+
+}
+
+
+
+
+
+
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+
+    .headerTitle {
+      font-size:        18px;
+      font-weight:      normal;
+      padding-top:      0px;
+      margin-top:       0px;
+      padding-bottom:   0px;
+      margin-bottom:    0px;
+      color:            white;
+      max-width:        100px;
+      text-align:       left;
+    }
+
+    .header {
+        min-height:60px;
+    }
+
+
+/*HOME PAGE*/
+
+.outcomesproject
+{
+    display:none;
+}
+
+.outcomesprojectmobile
+{
+    display:block;
+}
+
+.homeText
+{
+    text-align:justify;
+}
+
+/***********/
+
+
+
+
+    .euroflag
+    {
+        background: url('http://serik.mescomedia.com/img/euflag.jpg');
+        background-size:cover;
+        width: 90px;
+        height:60px;
+        background-repeat:   no-repeat;
+        background-position: center center;
+    }
+
+    .legalNotice{
+        display:none;
+    }
+
+
+
+    .MogatTitle{
+        font-size: 62px;
+        font-weight:bold;
+    }
+
+    .introBody{
+        height: 100%;
+        display:blocks;
+        margin:auto;
+        min-height:460px;
+    }
+
+    .MogatEnt{
+        font-size: 38px;
+        text-align:center;
+        color:white;
+        font-weight:lighter;
+        font-family:"Tahoma";
+        transition: ease-in-out 0.25s;
+        border: 2px solid rgba(255,255,255,1);
+        border-radius: 14px;
+        margin-left:10px;
+        margin-right:10px;
+        padding-right:20px;
+        padding-left:20px;
+        background-color:rgba(255,255,255,0);
+    }
+
+    .MogatEnt:hover{
+        cursor:pointer;
+        border: 2px solid rgba(255,255,255,1);
+        border-radius: 14px;
+        color:black;
+        background-color:rgba(255,255,255,1);
+    }
+
+    .MogatEnt:active{
+        color:white;
+        background-color:rgba(0,0,0,1);
+    }
+
+    .MogatDes{
+        font-size: 18px;
+        text-align:center;
+        color:white;
+        max-width:1200px;
+    }
+
+
+    .introMain{
+        top:20px;
+        bottom:0px;
+        right:0px;
+        left:0px;
+        background: #8997a4;
+    }
+
+    .MogatLogo
+    {
+        background: url('http://serik.mescomedia.com/img/Logo1.png');
+        background-size:cover;
+        width: 45px;
+        height:90px;
+        background-repeat:   no-repeat;
+        background-position: center center;
+    }
+
+    .flagwidget
+    {
+        display:block!important;
+        vertical-align:middle;
+        text-align:right;
+        float:left;
+    }
+
+    .flagwidgetLandScape
+    {
+        display:none!important;
+    }
+
+    .MobileFlagWidget{
+        display:    flex!important;
+    }
+
+    .mainContainer{
+        width:100%;
+    }
+
+    .DesktopFlagWidget{
+        display: none!important;
+    }
+
+    .langbtn
+    {
+        border-radius:0px;
+    }
+
+
+    .device0{
+        display:none;
+    }
+    .device1{
+        display:none;
+    }
+    .device2{
+        display:none;
+    }
+    .device3{
+        display:none;
+    }
+    .device4{
+        display:block;
+        position:fixed;
+        bottom:0px;
+        color:black;
+        font-weight:bold;
+        background-color: yellow;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+@-webkit-keyframes animate {
+        from {background-position:0 0;}
+        to {background-position: 500px 0;}
+}
+
+@-moz-keyframes animate {
+        from {background-position:0 0;}
+        to {background-position: 500px 0;}
+}
+
+@-ms-keyframes animate {
+        from {background-position:0 0;}
+        to {background-position: 500px 0;}
+}
+
+@-o-keyframes animate {
+        from {background-position:0 0;}
+        to {background-position: 500px 0;}
+}
+
+@keyframes animate {
+        from {background-position:0 0;}
+        to {background-position: 500px 0;}
+}
