@@ -3,26 +3,11 @@
 
 
 
-#include <Wt/WApplication.h>
-#include <Wt/WContainerWidget.h>
-#include <Wt/WEnvironment.h>
-#include <Wt/WJavaScript.h>
-#include <Wt/WText.h>
-
-#include <Wt/WBootstrapTheme>
-
-
-
-
-
-#include <iostream>
-#include <memory>
-
+#include <Necessary>
 
 
 using namespace Wt;
 
-#include <QtCore/qglobal.h>
 
 ///
 /// \brief The MainApplication class
@@ -46,9 +31,17 @@ public:
 
 
 
+    ///
+    /// \brief OrientationChanged
+    /// \return
+    /// emit if orientation changed page
     JSignal<int>& OrientationChanged();
 
 
+    ///
+    /// \brief PixelRatio
+    /// \return
+    /// detect device pixel ratio
     JSignal<float>& PixelRatio();
 
 
@@ -66,6 +59,9 @@ public:
     void getDimensionfBrowser();
 
 
+    ///
+    /// \brief f_OrientationChanged
+    /// Get Orientation changed in screen
     void f_OrientationChanged();
 
 

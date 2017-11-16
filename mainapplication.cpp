@@ -3,15 +3,16 @@
 MainApplication::MainApplication(const Wt::WEnvironment &env)
     :WApplication(env),whChanged(this,"whChanged"),_OrientationChanged(this,"_OrientationChanged"),
       _PixelRatio(this,"_PixelRatio")
-
 {
 
-
-
     p_wtTheme = std::make_shared<Wt::WBootstrapTheme>();
+
     p_wtTheme->setVersion(Wt::WBootstrapTheme::Version::v3);
+
     p_wtTheme.get()->setResponsive(true);
+
     Wt::WApplication::instance()->setTheme(p_wtTheme);
+
     Wt::WApplication::instance()->setTitle("Serik Belediyesi Resmi Web Sayfası");
 
     WApplication::useStyleSheet(WLink("css/mainPage.css"));
@@ -24,23 +25,15 @@ MainApplication::MainApplication(const Wt::WEnvironment &env)
 
 //    root()->addStyleClass("borderLine");
 
-
-
     WApplication::instance()->addMetaHeader("viewport","width=device.width, initial-scale=1.0");
-
 
     this->init();
 
-
 //    this->getDimensionfBrowser();
-
 
 //    this->OrientationChanged().connect(this,&MainApplication::getDimensionfBrowser);
 
 //    root()->doJavaScript("window.addEventListener(\"orientationchange\",function(){" + _OrientationChanged.createCall({"4"}) + "},false);");
-
-
-
 
     auto device0 = root()->addWidget(cpp14::make_unique<WText>("Large desktops and laptops"));
     auto device1 = root()->addWidget(cpp14::make_unique<WText>("Landscape tablets and medium desktops"));
@@ -61,7 +54,9 @@ void MainApplication::init()
 {
     root()->clear();
 
-    root()->addWidget(cpp14::make_unique<WText>("<h1>Serik Belediye Spor Resmi Web Sayfası</h1>"));
+//    root()->addWidget(cpp14::make_unique<WText>("<h1>Serik Belediye Spor Resmi Web Sayfası</h1>"));
+    root()->setContentAlignment(AlignmentFlag::Center);
+    root()->addWidget(cpp14::make_unique<FrontPageWidget>());
 //    root()->addWidget(Wt::cpp14::make_unique<Singleton>(this->viewPortWidth,this->viewPortHeight,viewPortPixelRatio));
 }
 
