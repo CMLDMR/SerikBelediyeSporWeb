@@ -12,7 +12,7 @@ MainApplication::MainApplication(const Wt::WEnvironment &env)
     p_wtTheme->setVersion(Wt::WBootstrapTheme::Version::v3);
     p_wtTheme.get()->setResponsive(true);
     Wt::WApplication::instance()->setTheme(p_wtTheme);
-    Wt::WApplication::instance()->setTitle("Mogat Official Page");
+    Wt::WApplication::instance()->setTitle("Serik Belediyesi Resmi Web Sayfası");
 
     WApplication::useStyleSheet(WLink("css/mainPage.css"));
 
@@ -29,7 +29,7 @@ MainApplication::MainApplication(const Wt::WEnvironment &env)
     WApplication::instance()->addMetaHeader("viewport","width=device.width, initial-scale=1.0");
 
 
-    this->initMogat();
+    this->init();
 
 
 //    this->getDimensionfBrowser();
@@ -41,12 +41,28 @@ MainApplication::MainApplication(const Wt::WEnvironment &env)
 
 
 
+
+    auto device0 = root()->addWidget(cpp14::make_unique<WText>("Large desktops and laptops"));
+    auto device1 = root()->addWidget(cpp14::make_unique<WText>("Landscape tablets and medium desktops"));
+    auto device2 = root()->addWidget(cpp14::make_unique<WText>("Portrait tablets and small desktops"));
+    auto device3 = root()->addWidget(cpp14::make_unique<WText>("Landscape phones and portrait tablets"));
+    auto device4 = root()->addWidget(cpp14::make_unique<WText>("Portrait phones and smaller"));
+
+
+    device0->addStyleClass("device0");
+    device1->addStyleClass("device1");
+    device2->addStyleClass("device2");
+    device3->addStyleClass("device3");
+    device4->addStyleClass("device4");
+
 }
 
-void MainApplication::initMogat()
+void MainApplication::init()
 {
     root()->clear();
-    root()->addWidget(Wt::cpp14::make_unique<Singleton>(this->viewPortWidth,this->viewPortHeight,viewPortPixelRatio));
+
+    root()->addWidget(cpp14::make_unique<WText>("<h1>Serik Belediye Spor Resmi Web Sayfası</h1>"));
+//    root()->addWidget(Wt::cpp14::make_unique<Singleton>(this->viewPortWidth,this->viewPortHeight,viewPortPixelRatio));
 }
 
 JSignal<int, int, double> &MainApplication::ViewPortDimension()
@@ -72,7 +88,7 @@ void MainApplication::f_whChanged(int w, int h, double r)
     this->viewPortHeight = h;
     this->viewPortWidth = w;
     this->viewPortPixelRatio = r;
-    this->initMogat();
+    this->init();
 
 }
 

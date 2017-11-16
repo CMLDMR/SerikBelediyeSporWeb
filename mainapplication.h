@@ -7,13 +7,13 @@
 #include <Wt/WContainerWidget.h>
 #include <Wt/WEnvironment.h>
 #include <Wt/WJavaScript.h>
+#include <Wt/WText.h>
 
 #include <Wt/WBootstrapTheme>
 
 
 
 
-#include "singleton.h"
 
 #include <iostream>
 #include <memory>
@@ -36,7 +36,7 @@ public:
     ///
     /// \brief start initializing www.mogat.eu web.
     ///
-    void initMogat();
+    void init();
 
     ///
     /// \brief ViewPortDimension
