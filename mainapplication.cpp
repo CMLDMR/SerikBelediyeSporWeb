@@ -1,5 +1,9 @@
 #include "mainapplication.h"
 
+#include "contentpage.h"
+#include "ToolKit/wjavascriptslider.h"
+#include "src/haberlerpage.h"
+
 MainApplication::MainApplication(const Wt::WEnvironment &env)
     :WApplication(env),whChanged(this,"whChanged"),_OrientationChanged(this,"_OrientationChanged"),
       _PixelRatio(this,"_PixelRatio")
@@ -18,29 +22,19 @@ MainApplication::MainApplication(const Wt::WEnvironment &env)
     WApplication::useStyleSheet(WLink("css/mainPage.css"));
 
     Wt::WApplication::instance()->useStyleSheet("resources/themes/bootstrap/3/bootstrap-theme.min.css");
+    Wt::WApplication::require("script/script.js");
 
     Wt::WApplication::instance()->setBodyClass("introMain");
-
-//    std::cout << "instance id: " << Wt::WApplication::instance()->id() << std::endl;
-
-//    root()->addStyleClass("borderLine");
 
     WApplication::instance()->addMetaHeader("viewport","width=device.width, initial-scale=1.0");
 
     this->init();
-
-//    this->getDimensionfBrowser();
-
-//    this->OrientationChanged().connect(this,&MainApplication::getDimensionfBrowser);
-
-//    root()->doJavaScript("window.addEventListener(\"orientationchange\",function(){" + _OrientationChanged.createCall({"4"}) + "},false);");
 
     auto device0 = root()->addWidget(cpp14::make_unique<WText>("Large desktops and laptops"));
     auto device1 = root()->addWidget(cpp14::make_unique<WText>("Landscape tablets and medium desktops"));
     auto device2 = root()->addWidget(cpp14::make_unique<WText>("Portrait tablets and small desktops"));
     auto device3 = root()->addWidget(cpp14::make_unique<WText>("Landscape phones and portrait tablets"));
     auto device4 = root()->addWidget(cpp14::make_unique<WText>("Portrait phones and smaller"));
-
 
     device0->addStyleClass("device0");
     device1->addStyleClass("device1");
@@ -52,12 +46,35 @@ MainApplication::MainApplication(const Wt::WEnvironment &env)
 
 void MainApplication::init()
 {
+
     root()->clear();
 
-//    root()->addWidget(cpp14::make_unique<WText>("<h1>Serik Belediye Spor Resmi Web Sayfası</h1>"));
-    root()->setContentAlignment(AlignmentFlag::Center);
-    root()->addWidget(cpp14::make_unique<FrontPageWidget>());
-//    root()->addWidget(Wt::cpp14::make_unique<Singleton>(this->viewPortWidth,this->viewPortHeight,viewPortPixelRatio));
+
+    root()->addStyleClass("container-fluid");
+
+
+    {
+        root()->addWidget(cpp14::make_unique<FrontPageWidget>());
+    }
+
+//    root()->addWidget();
+
+    {
+        mHaberlerPage = root()->addWidget(cpp14::make_unique<HaberlerPage>());
+    }
+
+//    mHaberlerPage->setWidth(WLength::Auto);
+
+//    mMainPage = root()->addWidget(cpp14::make_unique<ContentPage>());
+
+//    mMainPage->getContentLayout()->setContentsMargins(0,0,0,0);
+
+
+
+
+//    auto slider = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<WJavaScriptSlider>(),1,AlignmentFlag::Center);
+
+
 }
 
 JSignal<int, int, double> &MainApplication::ViewPortDimension()

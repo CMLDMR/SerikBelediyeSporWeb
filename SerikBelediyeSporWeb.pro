@@ -18,12 +18,18 @@ SOURCES += main.cpp \
     mainapplication.cpp \
     main.cpp \
     mainapplication.cpp \
-    frontpagewidget.cpp
+    frontpagewidget.cpp \
+    ToolKit/wjavascriptslider.cpp \
+    contentpage.cpp \
+    src/haberlerpage.cpp
 
 HEADERS += \
     mainapplication.h \
     mainapplication.h \
-    frontpagewidget.h
+    frontpagewidget.h \
+    ToolKit/wjavascriptslider.h \
+    contentpage.h \
+    src/haberlerpage.h
 
 
 
@@ -613,4 +619,5 @@ DISTFILES += \
     docroot/resources/themes/bootstrap/3/wt.less \
     docroot/resources/tiny_mce/plugins/style/readme.txt \
     Necessary \
-    docroot/img/serikbelediyesporlogo.png
+    docroot/img/serikbelediyesporlogo.png \
+    docroot/script/script.js

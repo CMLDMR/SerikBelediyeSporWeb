@@ -14,6 +14,10 @@
 #include <Wt/WNavigationBar.h>
 #include <Wt/WMenu.h>
 #include <Wt/WMenuItem.h>
+#include <Wt/WPopupMenu.h>
+#include <Wt/WPopupMenuItem.h>
+#include <Wt/WMessageBox.h>
+#include <Wt/WCssDecorationStyle.h>
 
 
 

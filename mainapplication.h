@@ -6,7 +6,13 @@
 #include <Necessary>
 
 
+
+
 using namespace Wt;
+
+
+class ContentPage;
+class HaberlerPage;
 
 
 ///
@@ -19,7 +25,7 @@ public:
 
 
     ///
-    /// \brief start initializing www.mogat.eu web.
+    /// \brief start initializing www.serikbelediyesi.com
     ///
     void init();
 
@@ -84,6 +90,17 @@ private:
     JSignal<int> _OrientationChanged;
 
     JSignal<float> _PixelRatio;
+
+
+    ///
+    /// \brief mMainPage
+    ///
+    ContentPage* mMainPage;
+
+    ///
+    /// \brief mHaberlerPage
+    ///
+    HaberlerPage* mHaberlerPage;
 
 
 };
