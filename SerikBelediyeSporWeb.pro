@@ -22,7 +22,8 @@ SOURCES += main.cpp \
     ToolKit/wjavascriptslider.cpp \
     contentpage.cpp \
     src/haberlerpage.cpp \
-    src/storepage.cpp
+    src/storepage.cpp \
+    src/fikturpage.cpp
 
 HEADERS += \
     mainapplication.h \
@@ -32,7 +33,8 @@ HEADERS += \
     contentpage.h \
     src/haberlerpage.h \
     src/storepage.h \
-    ToolKit/bootstrap.h
+    ToolKit/bootstrap.h \
+    src/fikturpage.h
 
 
 

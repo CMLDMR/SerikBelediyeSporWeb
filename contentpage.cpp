@@ -2,7 +2,7 @@
 
 ContentPage::ContentPage()
 {
-    addStyleClass("content");
+//    addStyleClass("content");
     setContentAlignment(AlignmentFlag::Center);
     mLayout = setLayout(cpp14::make_unique<WVBoxLayout>());
 

@@ -4,6 +4,7 @@
 #include "ToolKit/wjavascriptslider.h"
 #include "src/haberlerpage.h"
 #include "src/storepage.h"
+#include "src/fikturpage.h"
 
 
 MainApplication::MainApplication(const Wt::WEnvironment &env)
@@ -74,7 +75,15 @@ void MainApplication::init()
     }
 
 
+    mMainPage->getContentLayout()->addSpacing(50);
+    {
+        mFiksturPage = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<FikturPage>());
+    }
 
+
+
+
+    mMainPage->getContentLayout()->addSpacing(250);
 //    mHaberlerPage->setWidth(WLength::Auto);
 
 
