@@ -46,49 +46,51 @@ void MainApplication::init()
     root()->addStyleClass("container-fluid");
 
 
-    auto mLayout = root()->setLayout(cpp14::make_unique<WVBoxLayout>());
+    mMainPage = root()->addWidget(cpp14::make_unique<ContentPage>());
+
+    mMainPage->getContentLayout()->setContentsMargins(0,0,0,0);
+
+//    auto mLayout = root()->setLayout(cpp14::make_unique<WVBoxLayout>());
 
 
 
 
     {
-        mLayout->addWidget(cpp14::make_unique<FrontPageWidget>(),1,AlignmentFlag::Justify);
+        mMainPage->getContentLayout()->addWidget(cpp14::make_unique<FrontPageWidget>(),1,AlignmentFlag::Justify);
     }
 
 
 
 //    root()->addWidget(cpp14::make_unique<WBreak>());
-    mLayout->addSpacing(50);
+    mMainPage->getContentLayout()->addSpacing(50);
     {
-        mHaberlerPage = mLayout->addWidget(cpp14::make_unique<HaberlerPage>());
+        mHaberlerPage = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<HaberlerPage>());
     }
 
 //    root()->addWidget(cpp14::make_unique<WBreak>());
-    mLayout->addSpacing(50);
+    mMainPage->getContentLayout()->addSpacing(50);
     {
-        mStorePage = mLayout->addWidget(cpp14::make_unique<StorePage>());
+        mStorePage = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<StorePage>());
     }
 
 
 
 //    mHaberlerPage->setWidth(WLength::Auto);
 
-//    mMainPage = root()->addWidget(cpp14::make_unique<ContentPage>());
-
-//    mMainPage->getContentLayout()->setContentsMargins(0,0,0,0);
 
 
 
 
-//    auto slider = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<WJavaScriptSlider>(),1,AlignmentFlag::Center);
+
+//    auto slider = mLayout->addWidget(cpp14::make_unique<WJavaScriptSlider>(),1,AlignmentFlag::Center);
 
 
 
-    auto device0 = mLayout->addWidget(cpp14::make_unique<WText>("col-lg--->"));
-    auto device1 = mLayout->addWidget(cpp14::make_unique<WText>("col-md--->"));
-    auto device2 = mLayout->addWidget(cpp14::make_unique<WText>("col-sm--->"));
-    auto device3 = mLayout->addWidget(cpp14::make_unique<WText>("col-sm--->"));
-    auto device4 = mLayout->addWidget(cpp14::make_unique<WText>("col-xs--->"));
+    auto device0 = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<WText>("col-lg--->"));
+    auto device1 = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<WText>("col-md--->"));
+    auto device2 = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<WText>("col-sm--->"));
+    auto device3 = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<WText>("col-sm--->"));
+    auto device4 = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<WText>("col-xs--->"));
 
     device0->addStyleClass("device0");
     device1->addStyleClass("device1");

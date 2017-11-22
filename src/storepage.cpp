@@ -10,32 +10,21 @@ StorePage::StorePage()
 
     auto mainContainer = addWidget(cpp14::make_unique<WContainerWidget>());
     mainContainer->addStyleClass(Bootstrap::Grid::row);
+//    mainContainer->setMargin(WLength::Auto,Side::Left|Side::Right);
+    mainContainer->setContentAlignment(AlignmentFlag::Center);
 
     {
         auto container = mainContainer->addWidget(cpp14::make_unique<WContainerWidget>());
         container->setContentAlignment(AlignmentFlag::Center);
         container->setMargin(WLength::Auto,Side::Left|Side::Right);
         container->addStyleClass(Bootstrap::Grid::row);
-        container->addWidget(cpp14::make_unique<Urun>())->addStyleClass(Bootstrap::Grid::Medium::col_md_3+Bootstrap::Grid::Small::col_sm_4+Bootstrap::Grid::ExtraSmall::col_xs_6);
-        container->addWidget(cpp14::make_unique<Urun>())->addStyleClass(Bootstrap::Grid::Medium::col_md_3+Bootstrap::Grid::Small::col_sm_4+Bootstrap::Grid::ExtraSmall::col_xs_6);
-        container->addWidget(cpp14::make_unique<Urun>())->addStyleClass(Bootstrap::Grid::Medium::col_md_3+Bootstrap::Grid::Small::col_sm_4+Bootstrap::Grid::ExtraSmall::col_xs_6);
-        container->addWidget(cpp14::make_unique<Urun>())->addStyleClass(Bootstrap::Grid::Medium::col_md_3+Bootstrap::Grid::Small::col_sm_4+Bootstrap::Grid::ExtraSmall::col_xs_6);
+        container->addWidget(cpp14::make_unique<Urun>())->addStyleClass(Bootstrap::Grid::Large::col_lg_4+Bootstrap::Grid::Medium::col_md_4+Bootstrap::Grid::Small::col_sm_6+Bootstrap::Grid::ExtraSmall::col_xs_12);
+        container->addWidget(cpp14::make_unique<Urun>())->addStyleClass(Bootstrap::Grid::Large::col_lg_4+Bootstrap::Grid::Medium::col_md_4+Bootstrap::Grid::Small::col_sm_6+Bootstrap::Grid::ExtraSmall::col_xs_12);
+        container->addWidget(cpp14::make_unique<Urun>())->addStyleClass(Bootstrap::Grid::Large::col_lg_4+Bootstrap::Grid::Medium::col_md_4+Bootstrap::Grid::Small::col_sm_6+Bootstrap::Grid::ExtraSmall::col_xs_12);
+        container->addWidget(cpp14::make_unique<Urun>())->addStyleClass(Bootstrap::Grid::Large::col_lg_4+Bootstrap::Grid::Medium::col_md_4+Bootstrap::Grid::Small::col_sm_6+Bootstrap::Grid::ExtraSmall::col_xs_12);
+        container->addWidget(cpp14::make_unique<Urun>())->addStyleClass(Bootstrap::Grid::Large::col_lg_4+Bootstrap::Grid::Medium::col_md_4+Bootstrap::Grid::Small::col_sm_6+Bootstrap::Grid::ExtraSmall::col_xs_12);
+        container->addWidget(cpp14::make_unique<Urun>())->addStyleClass(Bootstrap::Grid::Large::col_lg_4+Bootstrap::Grid::Medium::col_md_4+Bootstrap::Grid::Small::col_sm_6+Bootstrap::Grid::ExtraSmall::col_xs_12);
     }
-
-
-    {
-        auto container = mainContainer->addWidget(cpp14::make_unique<WContainerWidget>());
-        container->setContentAlignment(AlignmentFlag::Center);
-        container->setMargin(WLength::Auto,Side::Left|Side::Right);
-        container->addStyleClass(Bootstrap::Grid::row);
-        container->addWidget(cpp14::make_unique<Urun>())->addStyleClass(Bootstrap::Grid::Medium::col_md_3+Bootstrap::Grid::Small::col_sm_3+Bootstrap::Grid::ExtraSmall::col_xs_6);
-        container->addWidget(cpp14::make_unique<Urun>())->addStyleClass(Bootstrap::Grid::Medium::col_md_3+Bootstrap::Grid::Small::col_sm_3+Bootstrap::Grid::ExtraSmall::col_xs_6);
-        container->addWidget(cpp14::make_unique<Urun>())->addStyleClass(Bootstrap::Grid::Medium::col_md_3+Bootstrap::Grid::Small::col_sm_3+Bootstrap::Grid::ExtraSmall::col_xs_6);
-        container->addWidget(cpp14::make_unique<Urun>())->addStyleClass(Bootstrap::Grid::Medium::col_md_3+Bootstrap::Grid::Small::col_sm_3+Bootstrap::Grid::ExtraSmall::col_xs_6);
-    }
-
-
-
 
 }
 

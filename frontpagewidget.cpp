@@ -43,7 +43,6 @@ FrontPageWidget::FrontPageWidget()
         container->addStyleClass("row justify-content-md-center");
         navigation = container->addWidget(Wt::cpp14::make_unique<Wt::WNavigationBar>());
         navigation->addStyleClass("col-sm-12 justify-content-md-center");
-//        navigation->setTitle("Ana Sayfa","");
         navigation->setResponsive(true);
         this->fLoadMenu();
     }
