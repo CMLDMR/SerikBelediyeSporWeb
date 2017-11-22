@@ -1,0 +1,32 @@
+/*TEST*************************************/
+.orange
+{
+    background-color:orange;
+}
+
+.red
+{
+    background-color:red;
+}
+
+.blue
+{
+    background-color:blue;
+}
+
+.pink
+{
+    background-color:pink;
+}
+
+.green
+{
+    background-color:green;
+}
+
+.border1px
+{
+	border: 1px solid black;
+}
+
+/*TEST***********************************END*/
