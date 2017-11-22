@@ -13,6 +13,7 @@ using namespace Wt;
 
 class ContentPage;
 class HaberlerPage;
+class StorePage;
 
 
 ///
@@ -101,6 +102,11 @@ private:
     /// \brief mHaberlerPage
     ///
     HaberlerPage* mHaberlerPage;
+
+    ///
+    /// \brief mStorePage
+    /// Mağaza
+    StorePage* mStorePage;
 
 
 };

@@ -10,8 +10,11 @@
 #include <Wt/WVBoxLayout.h>
 #include <Wt/WImage.h>
 #include <Wt/WLink.h>
+#include <Wt/WCssDecorationStyle.h>
 
 #include <vector>
+
+#include "ToolKit/bootstrap.h"
 
 
 using namespace Wt;

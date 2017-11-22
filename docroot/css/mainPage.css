@@ -49,36 +49,12 @@
 }
 
 .navbar .navbar-collapse {
-    text-align: center;
     text-align:center!important;
+}/**/
 
-}
 
 
-.orange
-{
-    background-color:orange;
-}
 
-.red
-{
-    background-color:red;
-}
-
-.blue
-{
-    background-color:blue;
-}
-
-.pink
-{
-    background-color:pink;
-}
-
-.green
-{
-    background-color:green;
-}
 
 .navigationbar
 {
@@ -96,12 +72,12 @@
 
 .serikbelediyesporTitle
 {
-    font-size:34px;
+    font-size:28px;
     font-weight:normal;
     font-family: "Tahoma";
     text-shadow: 2px 2px 5px #ccc;
     color:white;
-    letter-spacing: 18px;
+    letter-spacing: 8px;
     display:block;
 }
 
@@ -134,35 +110,133 @@ background: linear-gradient(to bottom, #f2f5f6 0%,#e3eaed 37%,#c8d7dc 100%);
 
 /*HABERLER PAGE*/
 
+
+
+.Haberler
+{
+    font-size: 28px;
+    font-family: "Tahoma";
+    font-weight: lighter;
+    letter-spacing: 18px;
+    text-shadow: 2px 2px 2px gray;
+}
+
+.content-center
+{
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+    text-align:center;
+}
+
 .HaberlerPage
 {
-    border: 1px solid red;
     background: #eeeeee;
-    /*max-width:1280px;
+    /*max-width:1280px;*/
     background: -moz-linear-gradient(left, #eeeeee 0%, #cccccc 100%);
     background: -webkit-linear-gradient(left, #eeeeee 0%,#cccccc 100%);
     background: linear-gradient(to right, #eeeeee 0%,#cccccc 100%);
-    width:100%;*/
-    background-color:blue;
+    width:100%;
+    /*background-color:blue;*/
 }
 
 .LastHaber
 {
-    border: 1px solid red;
+    background-size:cover;
+    background-repeat: no-repeat;
 }
+
+.LastHaberimg
+{
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
+.LastHaberTitle
+{
+    font-size:18px;
+    font-family:"Tahoma";
+    font-weight:lighter;
+}
+
+.LastHaberdetail
+{
+/*      text-align:justify;
+      overflow: hidden;
+      text-overflow: ellipsis;*/
+}
+
 
 .HaberList
 {
-    border: 1px solid red;
+    text-align:center;
 }
 
 .HaberWidget
 {
-    display:block;
     height:50%;
+    max-width:150px;
+    height:auto;
+    width:100%;
+    margin-right:100px;
+    margin-left:100px;
+    border: 1px solid gray;
+}
+
+.Haberimg
+{
+    width:100%;
 }
 
 /*HABERLER PAGE END*/
+
+
+
+/* STORE PAGE*/
+
+.storepage
+{
+    background: #627d4d;
+    background: -moz-linear-gradient(left, #627d4d 0%, #1f3b08 100%);
+    background: -webkit-linear-gradient(left, #627d4d 0%,#1f3b08 100%);
+    background: linear-gradient(to right, #627d4d 0%,#1f3b08 100%);
+}
+
+.store
+{
+    font-size: 28px;
+    font-family: "Tahoma";
+    font-weight: lighter;
+    letter-spacing: 18px;
+    text-shadow: 2px 2px 2px gray;
+    color:white;
+}
+
+.product
+{
+    margin-bottom:5px;
+    padding-bottom: 5px;
+}
+
+.text-color-white
+{
+    color:white;
+}
+
+
+
+
+.productimg
+{
+    width:%50;
+    max-width:100px;
+    height:auto;
+    overflow:hidden;
+}
+
+
+/*> STORE PAGE*/
+
 
 
 

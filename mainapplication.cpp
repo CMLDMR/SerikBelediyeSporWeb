@@ -3,6 +3,8 @@
 #include "contentpage.h"
 #include "ToolKit/wjavascriptslider.h"
 #include "src/haberlerpage.h"
+#include "src/storepage.h"
+
 
 MainApplication::MainApplication(const Wt::WEnvironment &env)
     :WApplication(env),whChanged(this,"whChanged"),_OrientationChanged(this,"_OrientationChanged"),
@@ -17,9 +19,10 @@ MainApplication::MainApplication(const Wt::WEnvironment &env)
 
     Wt::WApplication::instance()->setTheme(p_wtTheme);
 
-    Wt::WApplication::instance()->setTitle("Serik Belediyesi Resmi Web Sayfası");
+    Wt::WApplication::instance()->setTitle("Serik BelediyeSpor Resmi Web Sayfası");
 
     WApplication::useStyleSheet(WLink("css/mainPage.css"));
+    WApplication::useStyleSheet(WLink("css/test.css"));
 
     Wt::WApplication::instance()->useStyleSheet("resources/themes/bootstrap/3/bootstrap-theme.min.css");
     Wt::WApplication::require("script/script.js");
@@ -30,17 +33,7 @@ MainApplication::MainApplication(const Wt::WEnvironment &env)
 
     this->init();
 
-    auto device0 = root()->addWidget(cpp14::make_unique<WText>("Large desktops and laptops"));
-    auto device1 = root()->addWidget(cpp14::make_unique<WText>("Landscape tablets and medium desktops"));
-    auto device2 = root()->addWidget(cpp14::make_unique<WText>("Portrait tablets and small desktops"));
-    auto device3 = root()->addWidget(cpp14::make_unique<WText>("Landscape phones and portrait tablets"));
-    auto device4 = root()->addWidget(cpp14::make_unique<WText>("Portrait phones and smaller"));
 
-    device0->addStyleClass("device0");
-    device1->addStyleClass("device1");
-    device2->addStyleClass("device2");
-    device3->addStyleClass("device3");
-    device4->addStyleClass("device4");
 
 }
 
@@ -53,15 +46,30 @@ void MainApplication::init()
     root()->addStyleClass("container-fluid");
 
 
+    auto mLayout = root()->setLayout(cpp14::make_unique<WVBoxLayout>());
+
+
+
+
     {
-        root()->addWidget(cpp14::make_unique<FrontPageWidget>());
+        mLayout->addWidget(cpp14::make_unique<FrontPageWidget>(),1,AlignmentFlag::Justify);
     }
 
-//    root()->addWidget();
 
+
+//    root()->addWidget(cpp14::make_unique<WBreak>());
+    mLayout->addSpacing(50);
     {
-        mHaberlerPage = root()->addWidget(cpp14::make_unique<HaberlerPage>());
+        mHaberlerPage = mLayout->addWidget(cpp14::make_unique<HaberlerPage>());
     }
+
+//    root()->addWidget(cpp14::make_unique<WBreak>());
+    mLayout->addSpacing(50);
+    {
+        mStorePage = mLayout->addWidget(cpp14::make_unique<StorePage>());
+    }
+
+
 
 //    mHaberlerPage->setWidth(WLength::Auto);
 
@@ -74,6 +82,19 @@ void MainApplication::init()
 
 //    auto slider = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<WJavaScriptSlider>(),1,AlignmentFlag::Center);
 
+
+
+    auto device0 = mLayout->addWidget(cpp14::make_unique<WText>("col-lg--->"));
+    auto device1 = mLayout->addWidget(cpp14::make_unique<WText>("col-md--->"));
+    auto device2 = mLayout->addWidget(cpp14::make_unique<WText>("col-sm--->"));
+    auto device3 = mLayout->addWidget(cpp14::make_unique<WText>("col-sm--->"));
+    auto device4 = mLayout->addWidget(cpp14::make_unique<WText>("col-xs--->"));
+
+    device0->addStyleClass("device0");
+    device1->addStyleClass("device1");
+    device2->addStyleClass("device2");
+    device3->addStyleClass("device3");
+    device4->addStyleClass("device4");
 
 }
 

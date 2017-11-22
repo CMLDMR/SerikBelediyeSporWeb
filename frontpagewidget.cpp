@@ -1,18 +1,20 @@
 #include "frontpagewidget.h"
+#include "ToolKit/bootstrap.h"
+
 
 FrontPageWidget::FrontPageWidget()
 {
 
     setContentAlignment(AlignmentFlag::Center);
-    setMargin(WLength::Auto,Side::Left|Side::Right);
-    addStyleClass("frontpagewidget");
+//    setMargin(WLength::Auto,Side::Left|Side::Right);
+    addStyleClass(Bootstrap::Grid::container_fluid + "frontpagewidget" );
 
 
     {
 
         auto mainContainer = addWidget(cpp14::make_unique<WContainerWidget>());
         mainContainer->setMaximumSize(1280,WLength::Auto);
-        mainContainer->addStyleClass("row justify-content-md-justify");
+        mainContainer->addStyleClass("row");
 
         mainContainer->addWidget(cpp14::make_unique<WImage>(WLink("img/serikbelediyesporlogo.png")))->addStyleClass("col-sm-2");
 
@@ -23,7 +25,7 @@ FrontPageWidget::FrontPageWidget()
         middleContainer->addWidget(cpp14::make_unique<WText>("Fatih Terim: ''Seyretmedim, görmedim ama gördüğüm kadarıyla söylüyorum gol değildi''"))
                 ->addStyleClass("textcolorwhite");
 
-        middleContainer->addWidget(cpp14::make_unique<WText>("SERİK BELEDİYESPOR"))
+        middleContainer->addWidget(cpp14::make_unique<WText>("SERİK BELEDİYE SPOR"))
                 ->addStyleClass("serikbelediyesporTitle");
 
         middleContainer->addWidget(cpp14::make_unique<WText>("Resmi Web Sayfası"))
@@ -38,10 +40,10 @@ FrontPageWidget::FrontPageWidget()
 
     {
         auto container = addWidget(cpp14::make_unique<WContainerWidget>());
-        container->addStyleClass("row justify-content-md-justify");
+        container->addStyleClass("row justify-content-md-center");
         navigation = container->addWidget(Wt::cpp14::make_unique<Wt::WNavigationBar>());
         navigation->addStyleClass("col-sm-12 justify-content-md-center");
-        navigation->setTitle("Ana Sayfa","");
+//        navigation->setTitle("Ana Sayfa","");
         navigation->setResponsive(true);
         this->fLoadMenu();
     }
