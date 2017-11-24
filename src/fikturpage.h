@@ -17,6 +17,8 @@
 #include <Wt/WTextArea.h>
 #include <Wt/WMenu.h>
 #include <Wt/WStackedWidget.h>
+#include <Wt/WText.h>
+#include <Wt/WTable.h>
 
 
 #include <vector>
@@ -26,11 +28,35 @@
 
 using namespace Wt;
 
+class PuanDurumu;
+class GelecekMaclar;
 
 class FikturPage : public WContainerWidget
 {
 public:
     FikturPage();
+};
+
+
+
+class PuanDurumu : public WContainerWidget
+{
+public:
+    PuanDurumu();
+
+
+    class item : public WContainerWidget
+    {
+    public:
+        item(bool listtitle = false);
+    };
+};
+
+
+class GelecekMaclar : public WContainerWidget
+{
+public:
+    GelecekMaclar();
 };
 
 #endif // FIKTURPAGE_H

@@ -3,20 +3,16 @@
 HaberlerPage::HaberlerPage()
 {
 
-    addStyleClass(Bootstrap::Grid::container_fluid);
+    addStyleClass(Bootstrap::Grid::container_fluid + "HaberlerPage");
 
-//    addWidget(cpp14::make_unique<WText>("Haberler"))->addStyleClass("Haberler");
+    setContentAlignment(AlignmentFlag::Center);
+    addWidget(cpp14::make_unique<WText>("Haberler"))->addStyleClass("Haberler");
 
     {
         using namespace Bootstrap::Test;
-//        auto mainContainer = addWidget(cpp14::make_unique<WContainerWidget>());
-//        mainContainer->setContentAlignment(AlignmentFlag::Center);
-//        mainContainer->setMargin(WLength::Auto,Side::Left|Side::Right);
-//        mainContainer->addStyleClass(Bootstrap::Grid::container_fluid+Bootstrap::Test::pink);
 
         auto container = addWidget(cpp14::make_unique<WContainerWidget>());
-        container->addStyleClass(Bootstrap::Grid::row + pink);
-//        container->setMargin(WLength::Auto,Side::Left|Side::Right);
+        container->addStyleClass(Bootstrap::Grid::row);
         container->setContentAlignment(AlignmentFlag::Center);
 
         container->addWidget(cpp14::make_unique<LastHaber>())->addStyleClass( Bootstrap::Grid::Large::col_lg_4);
@@ -34,7 +30,7 @@ LastHaber::LastHaber()
     mainContainer->addStyleClass(Bootstrap::Grid::container_fluid);
     mainContainer->setContentAlignment(AlignmentFlag::Center);
 
-    addStyleClass(Bootstrap::Grid::row + "LastHaber" + Bootstrap::Test::red + Bootstrap::Test::border1px);
+    addStyleClass(Bootstrap::Grid::row + "LastHaber" + Bootstrap::Test::Color::red );
 //    decorationStyle().setBackgroundImage(WLink("urun/news.png"));
 
     {
@@ -62,15 +58,13 @@ HaberList::HaberList()
 {
 
     auto container = addWidget(cpp14::make_unique<WContainerWidget>());
-    container->addStyleClass(Bootstrap::Grid::container_fluid+Bootstrap::Test::border1px);
+    container->addStyleClass(Bootstrap::Grid::container_fluid);
 //    container->setContentAlignment(AlignmentFlag::Center);
 
     {
 
         auto container1 = container->addWidget(cpp14::make_unique<WContainerWidget>());
-        container1->addStyleClass(Bootstrap::Grid::row+Bootstrap::Test::border1px);
-//        container1->setContentAlignment(AlignmentFlag::Center);
-//        container1->setMargin(WLength::Auto,Side::Left|Side::Right);
+        container1->addStyleClass(Bootstrap::Grid::row);
 
         container1->addWidget(cpp14::make_unique<HaberWidget>("The background-repeat property sets if/how a background image will be repeated"))
                 ->addStyleClass(Bootstrap::Grid::Small::col_sm_4+Bootstrap::Grid::Large::col_lg_4);
@@ -83,9 +77,8 @@ HaberList::HaberList()
     {
 
         auto container1 = container->addWidget(cpp14::make_unique<WContainerWidget>());
-        container1->addStyleClass(Bootstrap::Grid::row+Bootstrap::Test::border1px);
-//        container1->setContentAlignment(AlignmentFlag::Center);
-//        container1->setMargin(WLength::Auto,Side::Left|Side::Right);
+        container1->addStyleClass(Bootstrap::Grid::row);
+
 
         container1->addWidget(cpp14::make_unique<HaberWidget>("The background-repeat property sets if/how a background image will be repeated"))
                 ->addStyleClass(Bootstrap::Grid::Small::col_sm_4+Bootstrap::Grid::Large::col_lg_4);
@@ -100,7 +93,7 @@ HaberList::HaberList()
 HaberWidget::HaberWidget(std::string str)
 {
     setContentAlignment(AlignmentFlag::Center);
-    addStyleClass(Bootstrap::Grid::container_fluid+Bootstrap::Test::border1px);
+    addStyleClass(Bootstrap::Grid::container_fluid);
     {
         auto container = addWidget(cpp14::make_unique<WContainerWidget>());
         container->addStyleClass("row");

@@ -1,4 +1,39 @@
 
+
+
+console.log("Test Console Log...");
+
+
+var firstnavpos = 0;
+window.addEventListener('scroll', function() {
+    myFunction();
+}, false);
+
+function myFunction() {
+
+    var navbar = document.getElementById("navbarid");
+    var sticky = navbar.offsetTop;
+    if( firstnavpos == 0 )
+    {
+        firstnavpos = sticky;
+    }
+
+    console.log("navbarwidth:   " + navbar.style.width);
+    console.log("firstnavpos:   " + firstnavpos);
+    console.log("window.pageYOffset: " + window.pageYOffset);
+
+  if (window.pageYOffset >= firstnavpos) {
+    navbar.classList.add("sticky");
+    console.log("NAVBAR SET STICY");
+
+  } else {
+      navbar.classList.remove("sticky");
+      console.log("NAVBAR REMOVE STICY");
+  }
+}
+
+
+
 var slideIndex = 1;
 //showSlides(slideIndex);
 

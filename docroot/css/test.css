@@ -19,6 +19,16 @@
     background-color:pink;
 }
 
+.white
+{
+    background-color:white;
+}
+
+.lavender
+{
+    background-color:lavender;
+}
+
 .green
 {
     background-color:green;
@@ -34,11 +44,64 @@
     margin:10px 10px 10px 10px;
 }
 
+.Padding10px
+{
+    padding: 10px 10px 10px 10px;
+}
+
 
 .maxWidth150
 {
     max-width:150px;
 }
 
+.boxshadow2p2p4pGray
+{
+    box-shadow: 2px 2px 10px #888888;
+}
+
+.font18px
+{
+    font-size:16px!important;
+}
+
+
+
+.displayBlock
+{
+    display:block;
+}
+
+
+.decnone
+{
+    text-decoration: none;
+}
+
+.decunderline
+{
+    text-decoration: underline;
+}
+
+.decoverline
+{
+    text-decoration: overline;
+}
+
+.decline-through
+{
+    text-decoration: line-through;
+}
+
+.decinitial
+{
+    text-decoration: initial;
+}
+
+
+.decinherit
+{
+    text-decoration: inherit;
+}
 
 /*TEST***********************************END*/

@@ -19,7 +19,7 @@ FrontPageWidget::FrontPageWidget()
         mainContainer->addWidget(cpp14::make_unique<WImage>(WLink("img/serikbelediyesporlogo.png")))->addStyleClass("col-sm-2");
 
         auto middleContainer = mainContainer->addWidget(cpp14::make_unique<WContainerWidget>());
-        middleContainer->addStyleClass("col-sm-8 align-items-center");
+        middleContainer->addStyleClass("col-sm-8");
         middleContainer->setContentAlignment(AlignmentFlag::Center|AlignmentFlag::Middle);
 
         middleContainer->addWidget(cpp14::make_unique<WText>("Fatih Terim: ''Seyretmedim, görmedim ama gördüğüm kadarıyla söylüyorum gol değildi''"))
@@ -44,6 +44,8 @@ FrontPageWidget::FrontPageWidget()
         navigation = container->addWidget(Wt::cpp14::make_unique<Wt::WNavigationBar>());
         navigation->addStyleClass("col-sm-12 justify-content-md-center");
         navigation->setResponsive(true);
+        navigation->setTitle("Serik BelediyeSpor");
+        navigation->setId("navbarid");
         this->fLoadMenu();
     }
 

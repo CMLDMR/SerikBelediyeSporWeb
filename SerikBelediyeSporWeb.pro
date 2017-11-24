@@ -23,7 +23,8 @@ SOURCES += main.cpp \
     contentpage.cpp \
     src/haberlerpage.cpp \
     src/storepage.cpp \
-    src/fikturpage.cpp
+    src/fikturpage.cpp \
+    src/footer.cpp
 
 HEADERS += \
     mainapplication.h \
@@ -34,7 +35,8 @@ HEADERS += \
     src/haberlerpage.h \
     src/storepage.h \
     ToolKit/bootstrap.h \
-    src/fikturpage.h
+    src/fikturpage.h \
+    src/footer.h
 
 
 

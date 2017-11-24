@@ -94,16 +94,55 @@ namespace Grid {
 
     }
 
+    namespace TextDecoration {
+
+        static const std::string none{"decnone "};//                            Make Paragraph stand out
+        static const std::string underline{"decunderline "};//                          Indicates smaller text (set to 85% of the size of the parent)
+        static const std::string overline{"decoverline "};//                  Indicates left-aligned text
+        static const std::string line_through{"decline-through "};//              Indicates center-aligned text
+        static const std::string initial{"decinitial "};//                Indicates right-aligned text
+        static const std::string inherit{"decinherit "};//            Indicates justified text
+    }
+
+
+
 
     namespace Test {
-        static const std::string red {"red "};//
-        static const std::string orange {"orange "};//
-        static const std::string blue {"blue "};//
-        static const std::string pink {"pink "};//
-        static const std::string green {"green "};//
+
         static const std::string border1px {"border1px "};//
-        static const std::string margin10px {"margin10px "};
         static const std::string maxWidth150{"maxWidth150 "};
+        static const std::string font16px{"font16px "};
+
+        namespace Padding
+        {
+            static const std::string Padding10px{"Padding10px "};
+        }
+
+        namespace Margin
+        {
+            static const std::string margin10px{"margin10px "};
+        }
+
+
+
+        namespace Shadow
+        {
+            static const std::string boxshadow2p2p4pGray{"boxshadow2p2p4pGray "};
+        }
+
+        namespace Color {
+            static const std::string red {"red "};//
+            static const std::string orange {"orange "};//
+            static const std::string blue {"blue "};//
+            static const std::string pink {"pink "};//
+            static const std::string green {"green "};//
+            static const std::string white {"white "};//
+            static const std::string lavender {"lavender "};//
+        }
+
+        namespace Display {
+            static const std::string block {"displayBlock "};//
+        }
     }
 }
 

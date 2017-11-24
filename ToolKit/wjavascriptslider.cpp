@@ -2,14 +2,14 @@
 
 WJavaScriptSlider::WJavaScriptSlider()
 {
-    addStyleClass("headerback");
+//    addStyleClass("headerback");
 
     auto mainLayout = setLayout(cpp14::make_unique<WHBoxLayout>());
 
-    auto mainContainer = mainLayout->addWidget(cpp14::make_unique<WContainerWidget>(),0,AlignmentFlag::Justify);
+    auto mainContainer = mainLayout->addWidget(cpp14::make_unique<WContainerWidget>(),0,AlignmentFlag::Center);
 
 
-    mainContainer->addStyleClass("scriptSlider");
+//    mainContainer->addStyleClass("scriptSlider");
 
     auto mLayout = mainContainer->setLayout(cpp14::make_unique<WVBoxLayout>());
 

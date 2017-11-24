@@ -5,6 +5,7 @@
 #include "src/haberlerpage.h"
 #include "src/storepage.h"
 #include "src/fikturpage.h"
+#include "src/footer.h"
 
 
 MainApplication::MainApplication(const Wt::WEnvironment &env)
@@ -30,11 +31,14 @@ MainApplication::MainApplication(const Wt::WEnvironment &env)
 
     Wt::WApplication::instance()->setBodyClass("introMain");
 
+
+
     WApplication::instance()->addMetaHeader("viewport","width=device.width, initial-scale=1.0");
 
     this->init();
 
 
+//    Wt::WApplication::instance()->
 
 }
 
@@ -42,6 +46,9 @@ void MainApplication::init()
 {
 
     root()->clear();
+
+    root()->scrolled().connect(this,&MainApplication::f_Scrolled);
+
 
 
     root()->addStyleClass("container-fluid");
@@ -51,7 +58,6 @@ void MainApplication::init()
 
     mMainPage->getContentLayout()->setContentsMargins(0,0,0,0);
 
-//    auto mLayout = root()->setLayout(cpp14::make_unique<WVBoxLayout>());
 
 
 
@@ -61,17 +67,20 @@ void MainApplication::init()
     }
 
 
+    root()->setAttributeValue("onscroll","myFunction()");
 
-//    root()->addWidget(cpp14::make_unique<WBreak>());
-    mMainPage->getContentLayout()->addSpacing(50);
     {
-        mHaberlerPage = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<HaberlerPage>());
+//        mMainPage->getContentLayout()->addWidget(cpp14::make_unique<WJavaScriptSlider>(),1,AlignmentFlag::Center);
     }
 
-//    root()->addWidget(cpp14::make_unique<WBreak>());
-    mMainPage->getContentLayout()->addSpacing(50);
+
+    //    auto slider = mLayout->addWidget(cpp14::make_unique<WJavaScriptSlider>(),1,AlignmentFlag::Center);
+
+
+
     {
-        mStorePage = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<StorePage>());
+        mHaberlerPage = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<HaberlerPage>());
+//        mHaberlerPage->addStyleClass(Bootstrap::Test::border1px);
     }
 
 
@@ -80,10 +89,19 @@ void MainApplication::init()
         mFiksturPage = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<FikturPage>());
     }
 
+    mMainPage->getContentLayout()->addSpacing(50);
+    {
+        mStorePage = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<StorePage>());
+    }
+
+    mMainPage->getContentLayout()->addSpacing(50);
+    {
+        mMainPage->getContentLayout()->addWidget(cpp14::make_unique<FooterSpace::Footer>());
+    }
 
 
 
-    mMainPage->getContentLayout()->addSpacing(250);
+//    mMainPage->getContentLayout()->addSpacing(250);
 //    mHaberlerPage->setWidth(WLength::Auto);
 
 
@@ -91,7 +109,6 @@ void MainApplication::init()
 
 
 
-//    auto slider = mLayout->addWidget(cpp14::make_unique<WJavaScriptSlider>(),1,AlignmentFlag::Center);
 
 
 
@@ -159,5 +176,12 @@ void MainApplication::getDimensionfBrowser()
 
 void MainApplication::f_OrientationChanged()
 {
+
+}
+
+void MainApplication::f_Scrolled(WScrollEvent event)
+{
+
+    std::cout << event.scrollX() << event.scrollY() << std::endl;
 
 }

@@ -15,6 +15,7 @@ class ContentPage;
 class HaberlerPage;
 class StorePage;
 class FikturPage;
+class Footer;
 
 
 ///
@@ -71,6 +72,14 @@ public:
     /// \brief f_OrientationChanged
     /// Get Orientation changed in screen
     void f_OrientationChanged();
+
+
+
+    ///
+    /// \brief Sayfa Scroll Edildiği Zaman Signal ile Tetiklenen Function
+    /// \param event
+    ///
+    void f_Scrolled(WScrollEvent event);
 
 
 
