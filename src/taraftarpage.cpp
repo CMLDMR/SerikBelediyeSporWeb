@@ -10,12 +10,9 @@ Taraftar::TaraftarPage::TaraftarPage()
 Taraftar::TaraftarWidget::TaraftarWidget()
 {
 
-//    addStyleClass(Bootstrap::Test::border1px);
-    addWidget(cpp14::make_unique<WText>("Sizden Gelenler..."));
-
+//    addWidget(cpp14::make_unique<WText>("Sizden Gelenler..."));
     auto container = addWidget(cpp14::make_unique<WContainerWidget>());
     container->addStyleClass(Bootstrap::Grid::container_fluid);
-
 
     for( int i = 0 ; i < 5 ; i++ )
     {
@@ -24,35 +21,41 @@ Taraftar::TaraftarWidget::TaraftarWidget()
         row->addWidget(cpp14::make_unique<Event>());
     }
 
-
-
-
-
-
 }
 
 Taraftar::FaceBookWidget::FaceBookWidget()
 {
 
-    addStyleClass(Bootstrap::Test::border1px);
-    addWidget(cpp14::make_unique<WText>("FaceBook Widget"));
+//    addWidget(cpp14::make_unique<WText>("FaceBook Widget"));
+
+
+    auto face = addWidget(cpp14::make_unique<WText>( ));
+
+    QString str = "<iframe src=\"https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fser"
+                  "ikbelediye%2F&tabs=timeline&width=350&height=600&small_header=false&adapt_container_width=true&hide_co"
+                  "ver=false&show_facepile=true&appId\"; width=\"350\" height=\"600\" style=\"border:none;overflow:hidden\" scroll"
+                                                              "ing=\"no\" frameborder=\"0\" allowTransparency=\"true\"></iframe>";
+    face->setText(str.toStdString().c_str());
+    face->setTextFormat(TextFormat::UnsafeXHTML);
+    face->addStyleClass(Bootstrap::Test::Shadow::boxshadow2p2p4pGray);
 
 }
 
 Taraftar::DuyurularWidget::DuyurularWidget()
 {
-    addWidget(cpp14::make_unique<WText>("Duyuru Widget"));
-    addStyleClass(Bootstrap::Test::border1px);
+//    addWidget(cpp14::make_unique<WText>("Duyuru Widget"));
+//    addStyleClass(Bootstrap::Test::border1px);
 
     auto container = addWidget(cpp14::make_unique<WContainerWidget>());
     container->addStyleClass(Bootstrap::Grid::container_fluid);
 
 
-    for( int i = 0 ; i < 5 ; i++ )
+    for( int i = 0 ; i < 6 ; i++ )
     {
         auto row = container->addWidget(cpp14::make_unique<WContainerWidget>());
         row->addStyleClass(Bootstrap::Grid::row);
         row->addWidget(cpp14::make_unique<item>());
+        row->setMaximumSize(WLength::Auto,120);
     }
 }
 
@@ -62,7 +65,7 @@ Taraftar::TaraftarWidget::Event::Event()
     addStyleClass(Bootstrap::Grid::Large::col_lg_12+Bootstrap::Grid::Medium::col_md_12+Bootstrap::Grid::Small::col_sm_12+Bootstrap::Grid::ExtraSmall::col_xs_12);
     addStyleClass(Bootstrap::Test::Shadow::boxshadow2p2p4pGray+"ForumTitleWidget");
     auto mLayout = setLayout(cpp14::make_unique<WHBoxLayout>());
-    setMaximumSize(WLength::Auto,120);
+    setMaximumSize(650,120);
     setMargin(0,AllSides);
 
 
@@ -121,7 +124,7 @@ Taraftar::TaraftarWidget::Event::Event()
     {
 
         auto container = mLayout->addWidget(cpp14::make_unique<WContainerWidget>(),0,AlignmentFlag::Justify);
-        container->addStyleClass(Bootstrap::Grid::Large::col_lg_12);
+//        container->addStyleClass(Bootstrap::Grid::Large::col_lg_12);
 //        container->setMargin(WLength::Auto,AllSides);
         auto vLayout = container->setLayout(cpp14::make_unique<WVBoxLayout>());
 
@@ -142,8 +145,13 @@ Taraftar::TaraftarWidget::Event::Event()
 
 
         {
-            auto title = vLayout->addWidget(cpp14::make_unique<WText>("Bence Statların Çimleri Kırmızı Olsun"),0,AlignmentFlag::Left);
+            auto title = vLayout->addWidget(cpp14::make_unique<WText>("Bence Statların Çimleri Kırmızı Olsun"),0,AlignmentFlag::Justify);
             title->addStyleClass("ForumTitle");
+        }
+
+        {
+            auto title = vLayout->addWidget(cpp14::make_unique<WText>("Daha sonra oluşturduğumuz sayfa eklentisinin kodunu almak için hemen ..."),0,AlignmentFlag::Justify);
+//            title->addStyleClass("ForumTitle");
         }
 
         {
@@ -162,12 +170,34 @@ Taraftar::DuyurularWidget::item::item()
 {
 
     addStyleClass(Bootstrap::Grid::Large::col_lg_12+Bootstrap::Grid::Medium::col_md_12+Bootstrap::Grid::Small::col_sm_12+Bootstrap::Grid::ExtraSmall::col_xs_12);
-    addStyleClass(Bootstrap::Test::Shadow::boxshadow2p2p4pGray+"ForumTitleWidget");
-    auto mLayout = setLayout(cpp14::make_unique<WHBoxLayout>());
-    setMaximumSize(WLength::Auto,120);
+    addStyleClass(Bootstrap::Test::Shadow::boxshadow2p2p4pGray+"DuyuruItem");
+    auto mLayout = setLayout(cpp14::make_unique<WVBoxLayout>());
+    mLayout->setContentsMargins(0,0,0,0);
+    setMaximumSize(WLength::Auto,100);
     setMargin(0,AllSides);
+    setPadding(0,AllSides);
+    setId("item");
 
 
+    {
+        auto container = mLayout->addWidget(cpp14::make_unique<WContainerWidget>());
+        container->setMargin(0,AllSides);
+        container->setPadding(0,AllSides);
+        auto layout = container->setLayout(cpp14::make_unique<WHBoxLayout>());
+        layout->setContentsMargins(0,0,0,0);
+        layout->addWidget(cpp14::make_unique<WText>("12/12/2017"),0,AlignmentFlag::Left);
+        layout->addWidget(cpp14::make_unique<WText>("12/01/2018"),0,AlignmentFlag::Right);
+    }
 
+    {
+        auto container = mLayout->addWidget(cpp14::make_unique<WContainerWidget>());
+        container->setMargin(0,AllSides);
+        container->setPadding(0,AllSides);
+        auto layout = container->setLayout(cpp14::make_unique<WVBoxLayout>());
+        layout->setContentsMargins(0,0,0,0);
+        layout->addWidget(cpp14::make_unique<WText>("Yaz Okulu Kayıtları Başladı"),0,AlignmentFlag::Center);
+        layout->addWidget(cpp14::make_unique<WText>("Edit: I installed Renesis Player as suggested by this answer, but it does not work for me, probably because I have 64-bit system"),0,AlignmentFlag::Justify);
+//        layout->addWidget(cpp14::make_unique<WText>("Devamı"),0,AlignmentFlag::Right);
+    }
 
 }
