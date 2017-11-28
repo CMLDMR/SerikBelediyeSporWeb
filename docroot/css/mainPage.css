@@ -1,3 +1,42 @@
+/*DUYURU EVENT*/
+
+
+
+
+.DuyuruItem
+{
+background-color:#EFEFEF;
+transition: ease-in-out .25s;
+color:black;
+border-bottom: 1px solid black;
+border-top: 1px solid black;
+
+}
+
+.DuyuruItem:hover
+{
+background-color:#2F4F4F;
+cursor:pointer;
+color:white;
+}
+
+
+
+/**************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*TARAFTAR EVENT*/
 
 .RateTextUp
@@ -45,7 +84,7 @@ cursor:pointer;
     color:#696969;
     font-weight:normal;
     font-family:"Tahoma";
-    font-size:24px;
+    font-size:20px;
 }
 
 .ForumYorumSayisi
