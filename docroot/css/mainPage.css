@@ -1,3 +1,76 @@
+/*TARAFTAR EVENT*/
+
+.RateTextUp
+{
+
+    color:white;
+    font-weight:bold;
+    font-family:"Tahoma";
+    font-size:16px;
+    border-radius:15px;
+    max-width:45px;
+    min-width:35px;
+    min-height:20px;
+    background-color:#228B22;
+}
+
+.RateTextDown
+{
+
+    color:white;
+    font-weight:bold;
+    font-family:"Tahoma";
+    font-size:16px;
+    border-radius:15px;
+    max-width:45px;
+    min-width:35px;
+    min-height:20px;
+    background-color:#B22222;
+}
+
+.ForumTitleWidget
+{
+background-color:#F4F4F4;
+transition: ease-in-out .5s;
+}
+
+.ForumTitleWidget:hover
+{
+background-color:#C0C0C0;
+cursor:pointer;
+}
+
+.ForumTitle
+{
+    color:#696969;
+    font-weight:normal;
+    font-family:"Tahoma";
+    font-size:24px;
+}
+
+.ForumYorumSayisi
+{
+/*background: url("../img/comment.png") no-repeat center center fixed;*/
+background-color:#777777;
+border-radius:5px;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+min-width: 50px;
+min-height: 20px;
+color:white;
+}
+
+/************************/
+
+
+
+
+
+
+
+
 
 /*ROOT*/
 /* Home Sayfasında Root Background*/
