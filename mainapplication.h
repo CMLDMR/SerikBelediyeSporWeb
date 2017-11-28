@@ -18,6 +18,12 @@ class FikturPage;
 class Footer;
 
 
+namespace Taraftar{
+    class TaraftarPage;
+};
+
+
+
 ///
 /// \brief The MainApplication class
 /// This is Web Application Server. Contruct and Manage Page. Deliver the some neccessary variabla from platform or host
@@ -124,6 +130,12 @@ private:
     /// \brief mFiksturPage
     ///
     FikturPage* mFiksturPage;
+
+
+    ///
+    /// \brief Taraftar Sayfası ve İçeriği
+    ///
+    Taraftar::TaraftarPage* mTaraftarPage;
 
 
 };

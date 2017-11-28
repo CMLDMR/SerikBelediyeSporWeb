@@ -1,6 +1,6 @@
 QT -= gui
 
-CONFIG += c++11 console
+CONFIG += c++14 console
 CONFIG -= app_bundle
 
 # The following define makes your compiler emit warnings if you use
@@ -24,7 +24,8 @@ SOURCES += main.cpp \
     src/haberlerpage.cpp \
     src/storepage.cpp \
     src/fikturpage.cpp \
-    src/footer.cpp
+    src/footer.cpp \
+    src/taraftarpage.cpp
 
 HEADERS += \
     mainapplication.h \
@@ -36,7 +37,8 @@ HEADERS += \
     src/storepage.h \
     ToolKit/bootstrap.h \
     src/fikturpage.h \
-    src/footer.h
+    src/footer.h \
+    src/taraftarpage.h
 
 
 

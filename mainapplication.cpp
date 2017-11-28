@@ -6,6 +6,7 @@
 #include "src/storepage.h"
 #include "src/fikturpage.h"
 #include "src/footer.h"
+#include "src/taraftarpage.h"
 
 
 MainApplication::MainApplication(const Wt::WEnvironment &env)
@@ -88,6 +89,21 @@ void MainApplication::init()
     {
         mFiksturPage = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<FikturPage>());
     }
+
+    mMainPage->getContentLayout()->addSpacing(50);
+    {
+        auto SubContainer = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<WContainerWidget>());
+        SubContainer->setContentAlignment(AlignmentFlag::Center);
+        SubContainer->addStyleClass(Bootstrap::Grid::row);
+
+        SubContainer->addWidget(cpp14::make_unique<Taraftar::TaraftarWidget>())->addStyleClass(Bootstrap::Grid::Large::col_lg_4+Bootstrap::Grid::Medium::col_md_4+Bootstrap::Grid::Small::col_sm_4+Bootstrap::Grid::ExtraSmall::col_xs_12);
+
+        SubContainer->addWidget(cpp14::make_unique<Taraftar::FaceBookWidget>())->addStyleClass(Bootstrap::Grid::Large::col_lg_4+Bootstrap::Grid::Medium::col_md_4+Bootstrap::Grid::Small::col_sm_4+Bootstrap::Grid::ExtraSmall::col_xs_12);
+
+        SubContainer->addWidget(cpp14::make_unique<Taraftar::DuyurularWidget>())->addStyleClass(Bootstrap::Grid::Large::col_lg_4+Bootstrap::Grid::Medium::col_md_4+Bootstrap::Grid::Small::col_sm_4+Bootstrap::Grid::ExtraSmall::col_xs_12);
+
+    }
+
 
     mMainPage->getContentLayout()->addSpacing(50);
     {
