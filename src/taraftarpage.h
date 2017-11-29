@@ -20,6 +20,7 @@
 #include <Wt/WStackedWidget.h>
 #include <Wt/WText.h>
 #include <Wt/WTable.h>
+#include <Wt/WComboBox.h>
 
 
 #include <vector>
