@@ -7,6 +7,7 @@
 #include "src/fikturpage.h"
 #include "src/footer.h"
 #include "src/taraftarpage.h"
+#include "src/sporokullari.h"
 
 
 MainApplication::MainApplication(const Wt::WEnvironment &env)
@@ -82,6 +83,16 @@ void MainApplication::init()
     {
         mHaberlerPage = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<HaberlerPage>());
 //        mHaberlerPage->addStyleClass(Bootstrap::Test::border1px);
+    }
+
+    mMainPage->getContentLayout()->addSpacing(50);
+    {
+        mMainPage->getContentLayout()->addWidget(cpp14::make_unique<Okullar::SporOkullariWidget>(),0,AlignmentFlag::Center);
+    }
+
+    mMainPage->getContentLayout()->addSpacing(50);
+    {
+        mMainPage->getContentLayout()->addWidget(cpp14::make_unique<Okullar::AktiviteWidget>(),0,AlignmentFlag::Center);
     }
 
 

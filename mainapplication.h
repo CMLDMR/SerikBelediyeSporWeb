@@ -18,6 +18,11 @@ class FikturPage;
 class Footer;
 
 
+namespace Okullar {
+    class SporOkullariWidget;
+}
+
+
 namespace Taraftar{
     class TaraftarPage;
 };
