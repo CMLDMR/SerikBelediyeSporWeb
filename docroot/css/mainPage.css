@@ -1,3 +1,39 @@
+/*SPOR OKULLARI*/
+
+
+.sporokullari
+{
+/*    transform-origin: 100% 100%;
+    transform: rotate(-90deg);*/
+    float: left;
+    font-size: 34px;
+    font-family: "Tahoma";
+    font-weight: lighter;
+    text-shadow: 2px 2px 2px gray;
+    transition: ease-in-out 1s;
+    position:relative;
+/*    left:-220px;*/
+    top:-50px;
+    letter-spacing: 5.5px;
+
+
+}
+
+
+.okulitemBlock
+{
+    position: relative;
+}
+
+
+
+/***********************/
+
+
+
+
+
+
 /*DUYURU EVENT*/
 
 
@@ -9,7 +45,6 @@ background-color:#EFEFEF;
 transition: ease-in-out .25s;
 color:black;
 border-bottom: 1px solid black;
-border-top: 1px solid black;
 
 }
 
@@ -49,7 +84,7 @@ color:white;
     border-radius:15px;
     max-width:45px;
     min-width:35px;
-    min-height:20px;
+    min-height:15px;
     background-color:#228B22;
 }
 
@@ -63,20 +98,20 @@ color:white;
     border-radius:15px;
     max-width:45px;
     min-width:35px;
-    min-height:20px;
+    min-height:15px;
     background-color:#B22222;
 }
 
 .ForumTitleWidget
 {
-background-color:#F4F4F4;
-transition: ease-in-out .5s;
+    background-color:#F4F4F4;
+    transition: ease-in-out .5s;
 }
 
 .ForumTitleWidget:hover
 {
-background-color:#C0C0C0;
-cursor:pointer;
+    background-color:#C0C0C0;
+    cursor:pointer;
 }
 
 .ForumTitle
@@ -99,6 +134,27 @@ background-size: cover;
 min-width: 50px;
 min-height: 20px;
 color:white;
+}
+
+.ForumYeniKonu
+{
+/*background: url("../img/comment.png") no-repeat center center fixed;*/
+background-color:#777777;
+border-radius:5px;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+min-width: 50px;
+min-height: 20px;
+color:white;
+transition: ease-in-out .5s;
+}
+
+.ForumYeniKonu:hover
+{
+background-color:#222;
+cursor:pointer;
 }
 
 /************************/

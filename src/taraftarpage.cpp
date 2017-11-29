@@ -18,7 +18,22 @@ Taraftar::TaraftarWidget::TaraftarWidget()
         auto row = container->addWidget(cpp14::make_unique<WContainerWidget>());
         row->setContentAlignment(AlignmentFlag::Center);
         row->addStyleClass(Bootstrap::Grid::row);
-        row->addWidget(cpp14::make_unique<WText>("Taraftar"))->addStyleClass("Haberler");
+        row->addWidget(cpp14::make_unique<WText>("Taraftar"))->addStyleClass(Bootstrap::Grid::Large::col_lg_1+"Haberler");
+    }
+
+    {
+        auto row = container->addWidget(cpp14::make_unique<WContainerWidget>());
+        row->setContentAlignment(AlignmentFlag::Center);
+        auto layout = row->setLayout(cpp14::make_unique<WHBoxLayout>());
+
+        layout->addWidget(cpp14::make_unique<WText>("Kategori Seç"))->addStyleClass(Bootstrap::Grid::Large::col_lg_2);
+        auto com = layout->addWidget(cpp14::make_unique<WComboBox>());
+        com->addStyleClass(Bootstrap::Grid::Large::col_lg_1);
+        com->addItem("Futbol");
+        com->addItem("Basketbol");
+        com->addItem("Hentbol");
+
+        layout->addWidget(cpp14::make_unique<WText>("Yeni Konu"))->addStyleClass(Bootstrap::Grid::Large::col_lg_1+"ForumYeniKonu");
     }
 
     for( int i = 0 ; i < 5 ; i++ )
