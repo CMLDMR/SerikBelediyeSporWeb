@@ -1,6 +1,10 @@
 #include "basinpage.h"
 
-BasinPage::BasinPage()
+
+
+
+
+Medya::BasinPage::BasinPage()
 {
 
 }

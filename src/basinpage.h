@@ -31,12 +31,16 @@
 using namespace Wt;
 
 
-namespace Basin {
+namespace Medya {
     class BasinPage : public WContainerWidget
     {
     public:
         BasinPage();
     };
+
+
+
+
 }
 
 
