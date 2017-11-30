@@ -32,6 +32,12 @@ namespace FotoVideo {
 };
 
 
+namespace Medya {
+    class MedyaWidget;
+    class MedyaPage;
+};
+
+
 
 ///
 /// \brief The MainApplication class

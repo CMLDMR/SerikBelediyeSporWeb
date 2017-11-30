@@ -9,6 +9,7 @@
 #include "src/taraftarpage.h"
 #include "src/sporokullari.h"
 #include "src/fotovideopage.h"
+#include "src/basinpage.h"
 
 
 MainApplication::MainApplication(const Wt::WEnvironment &env)
@@ -110,6 +111,11 @@ void MainApplication::init()
 
         SubContainer->addWidget(cpp14::make_unique<Taraftar::DuyurularWidget>())->addStyleClass(Bootstrap::Grid::Large::col_lg_6+Bootstrap::Grid::Medium::col_md_6+Bootstrap::Grid::Small::col_sm_12+Bootstrap::Grid::ExtraSmall::col_xs_12);
 
+    }
+
+    mMainPage->getContentLayout()->addSpacing(50);
+    {
+        mMainPage->getContentLayout()->addWidget(cpp14::make_unique<Medya::MedyaWidget>());
     }
 
     mMainPage->getContentLayout()->addSpacing(50);
