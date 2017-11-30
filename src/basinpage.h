@@ -32,10 +32,41 @@ using namespace Wt;
 
 
 namespace Medya {
-    class BasinPage : public WContainerWidget
+    class MedyaPage : public WContainerWidget
     {
     public:
-        BasinPage();
+        MedyaPage();
+    };
+
+    class MedyaWidget : public WContainerWidget
+    {
+    public:
+        MedyaWidget();
+        class BasinWidget : public WContainerWidget
+        {
+        public:
+            BasinWidget();
+
+            class item : public WContainerWidget
+            {
+            public:
+                item();
+            };
+        };
+
+
+        class SocialWidget : public WContainerWidget
+        {
+        public:
+            SocialWidget();
+        };
+
+
+        class YayinlarWidget : public WContainerWidget
+        {
+        public:
+            YayinlarWidget();
+        };
     };
 
 
