@@ -8,6 +8,7 @@
 #include "src/footer.h"
 #include "src/taraftarpage.h"
 #include "src/sporokullari.h"
+#include "src/fotovideopage.h"
 
 
 MainApplication::MainApplication(const Wt::WEnvironment &env)
@@ -60,16 +61,12 @@ void MainApplication::init()
 
     mMainPage->getContentLayout()->setContentsMargins(0,0,0,0);
 
-
-
-
-
     {
         mMainPage->getContentLayout()->addWidget(cpp14::make_unique<FrontPageWidget>(),1,AlignmentFlag::Justify);
     }
 
 
-    root()->setAttributeValue("onscroll","myFunction()");
+//    root()->setAttributeValue("onscroll","myFunction()");
 
     {
 //        mMainPage->getContentLayout()->addWidget(cpp14::make_unique<WJavaScriptSlider>(),1,AlignmentFlag::Center);
@@ -82,7 +79,6 @@ void MainApplication::init()
 
     {
         mHaberlerPage = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<HaberlerPage>());
-//        mHaberlerPage->addStyleClass(Bootstrap::Test::border1px);
     }
 
     mMainPage->getContentLayout()->addSpacing(50);
@@ -105,7 +101,6 @@ void MainApplication::init()
     {
         auto SubContainer = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<WContainerWidget>());
         SubContainer->setContentAlignment(AlignmentFlag::Center);
-//        SubContainer->setMargin(WLength::Auto,AllSides);
         SubContainer->addStyleClass(Bootstrap::Grid::row);
 
 
@@ -115,6 +110,11 @@ void MainApplication::init()
 
         SubContainer->addWidget(cpp14::make_unique<Taraftar::DuyurularWidget>())->addStyleClass(Bootstrap::Grid::Large::col_lg_6+Bootstrap::Grid::Medium::col_md_6+Bootstrap::Grid::Small::col_sm_12+Bootstrap::Grid::ExtraSmall::col_xs_12);
 
+    }
+
+    mMainPage->getContentLayout()->addSpacing(50);
+    {
+        mMainPage->getContentLayout()->addWidget(cpp14::make_unique<FotoVideo::FotoVideoWidget>());
     }
 
 
@@ -128,10 +128,6 @@ void MainApplication::init()
         mMainPage->getContentLayout()->addWidget(cpp14::make_unique<FooterSpace::Footer>());
     }
 
-
-
-//    mMainPage->getContentLayout()->addSpacing(250);
-//    mHaberlerPage->setWidth(WLength::Auto);
 
 
 

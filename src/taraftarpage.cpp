@@ -26,14 +26,14 @@ Taraftar::TaraftarWidget::TaraftarWidget()
         row->setContentAlignment(AlignmentFlag::Center);
         auto layout = row->setLayout(cpp14::make_unique<WHBoxLayout>());
 
-        layout->addWidget(cpp14::make_unique<WText>("Kategori Seç"))->addStyleClass(Bootstrap::Grid::Large::col_lg_2);
-        auto com = layout->addWidget(cpp14::make_unique<WComboBox>());
+        layout->addWidget(cpp14::make_unique<WText>("Kategori Seç"),0,AlignmentFlag::Middle)->addStyleClass(Bootstrap::Grid::Large::col_lg_2);
+        auto com = layout->addWidget(cpp14::make_unique<WComboBox>(),0,AlignmentFlag::Middle);
         com->addStyleClass(Bootstrap::Grid::Large::col_lg_1);
         com->addItem("Futbol");
         com->addItem("Basketbol");
         com->addItem("Hentbol");
 
-        layout->addWidget(cpp14::make_unique<WText>("Yeni Konu"))->addStyleClass(Bootstrap::Grid::Large::col_lg_1+"ForumYeniKonu");
+        layout->addWidget(cpp14::make_unique<WText>("Yeni Konu"),0,AlignmentFlag::Middle)->addStyleClass(Bootstrap::Grid::Large::col_lg_1+"ForumYeniKonu");
     }
 
     for( int i = 0 ; i < 5 ; i++ )

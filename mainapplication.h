@@ -27,6 +27,10 @@ namespace Taraftar{
     class TaraftarPage;
 };
 
+namespace FotoVideo {
+    class FotoVideoWidget;
+};
+
 
 
 ///
