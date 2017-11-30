@@ -59,6 +59,18 @@ namespace Medya {
         {
         public:
             SocialWidget();
+
+            class faceitem : public WContainerWidget
+            {
+            public:
+                faceitem();
+            };
+
+            class tweeteritem : public WContainerWidget
+            {
+            public:
+                tweeteritem();
+            };
         };
 
 
@@ -66,6 +78,12 @@ namespace Medya {
         {
         public:
             YayinlarWidget();
+
+            class item : public WContainerWidget
+            {
+            public:
+                item(std::string path);
+            };
         };
     };
 
