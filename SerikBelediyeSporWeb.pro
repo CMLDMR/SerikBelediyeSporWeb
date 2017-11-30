@@ -27,7 +27,8 @@ SOURCES += main.cpp \
     src/footer.cpp \
     src/taraftarpage.cpp \
     src/sporokullari.cpp \
-    src/fotovideopage.cpp
+    src/fotovideopage.cpp \
+    src/basinpage.cpp
 
 HEADERS += \
     mainapplication.h \
@@ -42,7 +43,8 @@ HEADERS += \
     src/footer.h \
     src/taraftarpage.h \
     src/sporokullari.h \
-    src/fotovideopage.h
+    src/fotovideopage.h \
+    src/basinpage.h
 
 
 
