@@ -12,6 +12,7 @@
 #include <memory>
 
 #include <QtCore/qglobal.h>
+#include "src/mongoheaders.h"
 
 
 #include "frontpagewidget.h"

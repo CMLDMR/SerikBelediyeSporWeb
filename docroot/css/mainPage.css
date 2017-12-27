@@ -1,3 +1,37 @@
+/*MEDYA*/
+
+
+
+.medyaSubTitle
+{
+    font-size: 20px;
+    font-family: "Tahoma";
+    font-weight: lighter;
+    letter-spacing: 10px;
+    text-shadow: 2px 2px 2px gray;
+}
+
+
+/******************/
+
+
+/*FOTOVIDEO*/
+
+
+
+.fotoSubTitle
+{
+    font-size: 20px;
+    font-family: "Tahoma";
+    font-weight: lighter;
+    letter-spacing: 4px;
+    text-shadow: 2px 2px 2px gray;
+}
+
+
+/******************/
+
+
 /*SPOR OKULLARI*/
 
 
@@ -13,7 +47,6 @@
     transition: ease-in-out 1s;
     position:relative;
 /*    left:-220px;*/
-    top:-50px;
     letter-spacing: 5.5px;
 
 

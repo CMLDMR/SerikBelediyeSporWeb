@@ -44,7 +44,8 @@ HEADERS += \
     src/taraftarpage.h \
     src/sporokullari.h \
     src/fotovideopage.h \
-    src/basinpage.h
+    src/basinpage.h \
+    ../../Comman/databasekeys.h
 
 
 
@@ -54,6 +55,8 @@ win32: LIBS += -L$$PWD/../../Server/WebServer/Wt-4.0.0-msvs2015-Windows-x64-SDK/
 INCLUDEPATH += $$PWD/../../Server/WebServer/Wt-4.0.0-msvs2015-Windows-x64-SDK/include
 DEPENDPATH += $$PWD/../../Server/WebServer/Wt-4.0.0-msvs2015-Windows-x64-SDK/include
 
+INCLUDEPATH += $$PWD/../../Comman
+DEPENDPATH += $$PWD/../../Comman
 
 win32: LIBS += -L$$PWD/../../Server/WebServer/Wt-4.0.0-msvs2015-Windows-x64-SDK/lib/ -lwthttp
 
@@ -637,3 +640,26 @@ DISTFILES += \
     docroot/img/serikbelediyesporlogo.png \
     docroot/script/script.js \
     docroot/css/test.css
+
+
+
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/lib/ -lbsoncxx
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/lib/ -lbsoncxxd
+else:unix: LIBS += -L$$PWD/lib/ -lbsoncxx
+
+INCLUDEPATH += $$PWD/include/bsoncxx/v_noabi
+DEPENDPATH += $$PWD/include/bsoncxx/v_noabi
+
+
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/lib/ -lmongocxx
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/lib/ -lmongocxxd
+else:unix: LIBS += -L$$PWD/lib/ -lmongocxx
+
+INCLUDEPATH += $$PWD/include/mongocxx/v_noabi
+DEPENDPATH += $$PWD/include/mongocxx/v_noabi
+
+
+INCLUDEPATH += $$PWD/../../Boost/boost/
+DEPENDPATH += $$PWD/../../Boost/boost/

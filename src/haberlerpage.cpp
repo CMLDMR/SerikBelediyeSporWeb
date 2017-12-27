@@ -1,12 +1,18 @@
 #include "haberlerpage.h"
+#include "databasekeys.h"
 
-HaberlerPage::HaberlerPage()
+HaberlerPage::HaberlerPage(mongocxx::database *_db)
+    :WContainerWidget(),
+      db(_db)
 {
 
     addStyleClass(Bootstrap::Grid::container_fluid + "HaberlerPage");
 
     setContentAlignment(AlignmentFlag::Center);
     addWidget(cpp14::make_unique<WText>("Haberler"))->addStyleClass("Haberler");
+
+
+    auto collection = db->collection(DataBaseKeys::Haberler::collection);
 
     {
         using namespace Bootstrap::Test;
@@ -15,14 +21,16 @@ HaberlerPage::HaberlerPage()
         container->addStyleClass(Bootstrap::Grid::row);
         container->setContentAlignment(AlignmentFlag::Center);
 
-        container->addWidget(cpp14::make_unique<LastHaber>())->addStyleClass( Bootstrap::Grid::Large::col_lg_4);
+        container->addWidget(cpp14::make_unique<LastHaber>(&collection))->addStyleClass( Bootstrap::Grid::Large::col_lg_4);
 
         container->addWidget(cpp14::make_unique<HaberList>())->addStyleClass(Bootstrap::Grid::Large::col_lg_8);
     }
 
 }
 
-LastHaber::LastHaber()
+LastHaber::LastHaber(mongocxx::collection *_col)
+    :WContainerWidget(),
+      collection(_col)
 {
 //    setContentAlignment(AlignmentFlag::Justify);
 
@@ -33,23 +41,67 @@ LastHaber::LastHaber()
     addStyleClass(Bootstrap::Grid::row + "LastHaber" + Bootstrap::Test::Color::red );
 //    decorationStyle().setBackgroundImage(WLink("urun/news.png"));
 
+
     {
         auto container = mainContainer->addWidget(cpp14::make_unique<WContainerWidget>());
         container->addWidget(cpp14::make_unique<WImage>(WLink("urun/news.png")));
     }
 
-    {
-        auto container = mainContainer->addWidget(cpp14::make_unique<WContainerWidget>());
-        container->addWidget(cpp14::make_unique<WText>("Lorem Ipsum Nedir?"))->addStyleClass("LastHaberTitle");
-    }
+
 
     {
-        auto container = mainContainer->addWidget(cpp14::make_unique<WContainerWidget>());
-        container->addStyleClass(Bootstrap::Grid::row);
-        container->addWidget(cpp14::make_unique<WText>("Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir."
-                                                       " Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı "
-                                                       "oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500'lerden "
-                                                       "beri endüstri standardı sahte metinler olarak"));
+
+        try {
+
+            auto option = mongocxx::options::find{};
+
+            auto sortDoc = document{};
+            sortDoc.append(kvp(DataBaseKeys::Haberler::haberid,bsoncxx::types::b_int32{1}));
+
+            option.sort(sortDoc.view());
+
+            auto filter = document{};
+
+            filter.append(kvp(DataBaseKeys::Haberler::yayinda,bsoncxx::types::b_bool{DataBaseKeys::Haberler::yayin::yayinda}));
+
+            try {
+                mongocxx::stdx::optional<bsoncxx::document::value> val = collection->find_one(filter.view(),option);
+
+                if( val )
+                {
+
+                    {
+                        auto container = mainContainer->addWidget(cpp14::make_unique<WContainerWidget>());
+                        container->addStyleClass(Bootstrap::Grid::row);
+                        container->addWidget(cpp14::make_unique<WText>(WString::fromUTF8(val.get().view()[DataBaseKeys::Haberler::baslik].get_utf8().value.to_string().c_str())))->addStyleClass("LastHaberTitle");
+                    }
+
+                    {
+                        auto container = mainContainer->addWidget(cpp14::make_unique<WContainerWidget>());
+                        container->addStyleClass(Bootstrap::Grid::row);
+                        QString str = QString::fromStdString(val.get().view()[DataBaseKeys::Haberler::icerik].get_utf8().value.to_string());
+                        str.remove(QRegExp("<[^>]*>"));
+                        container->addWidget(cpp14::make_unique<WText>(WString::fromUTF8(str.mid(0,150).toStdString().c_str())));
+                    }
+
+                }else{
+                    auto container = mainContainer->addWidget(cpp14::make_unique<WContainerWidget>());
+                    container->addStyleClass(Bootstrap::Grid::row);
+                    container->addWidget(cpp14::make_unique<WText>(WString("No Data Queried")));
+                }
+
+            } catch (mongocxx::exception &e) {
+                auto container = mainContainer->addWidget(cpp14::make_unique<WContainerWidget>());
+                container->addStyleClass(Bootstrap::Grid::row);
+                container->addWidget(cpp14::make_unique<WText>(WString("db Error: {1}").arg(e.what())));
+            }
+
+
+        } catch (bsoncxx::exception &e) {
+            auto container = mainContainer->addWidget(cpp14::make_unique<WContainerWidget>());
+            container->addStyleClass(Bootstrap::Grid::row);
+            container->addWidget(cpp14::make_unique<WText>(WString("item Error: {1}").arg(e.what())));
+        }
     }
 
 }

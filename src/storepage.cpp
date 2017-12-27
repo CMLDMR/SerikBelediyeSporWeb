@@ -5,6 +5,7 @@ StorePage::StorePage()
 {
     addStyleClass(Bootstrap::Grid::container_fluid+Bootstrap::Typography::text_center+" storepage");
 
+
     addWidget(cpp14::make_unique<WText>("Store"))->addStyleClass("store");
 
 

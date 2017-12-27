@@ -13,27 +13,45 @@ FooterSpace::Footer::Footer()
 
 
     {
-        mainContainer->addWidget(cpp14::make_unique<Kurumsal>())->addStyleClass(Bootstrap::Grid::Large::col_lg_2+Bootstrap::Grid::Medium::col_md_4+Bootstrap::Grid::Small::col_sm_6);
+        mainContainer->addWidget(cpp14::make_unique<Kurumsal>())->addStyleClass(Bootstrap::Grid::Large::col_lg_2
+                                                                                +Bootstrap::Grid::Medium::col_md_4
+                                                                                +Bootstrap::Grid::Small::col_sm_4
+                                                                                +Bootstrap::Grid::ExtraSmall::col_xs_6);
+    }
+//0.03988467
+    {
+        mainContainer->addWidget(cpp14::make_unique<Branslar>())->addStyleClass(Bootstrap::Grid::Large::col_lg_2
+                                                                                +Bootstrap::Grid::Medium::col_md_4
+                                                                                +Bootstrap::Grid::Small::col_sm_4
+                                                                                +Bootstrap::Grid::ExtraSmall::col_xs_6);
     }
 
     {
-        mainContainer->addWidget(cpp14::make_unique<Branslar>())->addStyleClass(Bootstrap::Grid::Large::col_lg_2+Bootstrap::Grid::Medium::col_md_4+Bootstrap::Grid::Small::col_sm_6);
+        mainContainer->addWidget(cpp14::make_unique<Aktiviteler>())->addStyleClass(Bootstrap::Grid::Large::col_lg_2
+                                                                                   +Bootstrap::Grid::Medium::col_md_4
+                                                                                   +Bootstrap::Grid::Small::col_sm_4
+                                                                                   +Bootstrap::Grid::ExtraSmall::col_xs_6);
     }
 
     {
-        mainContainer->addWidget(cpp14::make_unique<Aktiviteler>())->addStyleClass(Bootstrap::Grid::Large::col_lg_2+Bootstrap::Grid::Medium::col_md_4+Bootstrap::Grid::Small::col_sm_6);
+        mainContainer->addWidget(cpp14::make_unique<Okullar>())->addStyleClass(Bootstrap::Grid::Large::col_lg_2
+                                                                               +Bootstrap::Grid::Medium::col_md_4
+                                                                               +Bootstrap::Grid::Small::col_sm_4
+                                                                               +Bootstrap::Grid::ExtraSmall::col_xs_6);
     }
 
     {
-        mainContainer->addWidget(cpp14::make_unique<Okullar>())->addStyleClass(Bootstrap::Grid::Large::col_lg_2+Bootstrap::Grid::Medium::col_md_4+Bootstrap::Grid::Small::col_sm_6);
+        mainContainer->addWidget(cpp14::make_unique<Arsiv>())->addStyleClass(Bootstrap::Grid::Large::col_lg_2
+                                                                             +Bootstrap::Grid::Medium::col_md_4
+                                                                             +Bootstrap::Grid::Small::col_sm_4
+                                                                             +Bootstrap::Grid::ExtraSmall::col_xs_6);
     }
 
     {
-        mainContainer->addWidget(cpp14::make_unique<Arsiv>())->addStyleClass(Bootstrap::Grid::Large::col_lg_2+Bootstrap::Grid::Medium::col_md_4+Bootstrap::Grid::Small::col_sm_6);
-    }
-
-    {
-        mainContainer->addWidget(cpp14::make_unique<Hakkimizda>())->addStyleClass(Bootstrap::Grid::Large::col_lg_2+Bootstrap::Grid::Medium::col_md_4+Bootstrap::Grid::Small::col_sm_6);
+        mainContainer->addWidget(cpp14::make_unique<Hakkimizda>())->addStyleClass(Bootstrap::Grid::Large::col_lg_2
+                                                                                  +Bootstrap::Grid::Medium::col_md_4
+                                                                                  +Bootstrap::Grid::Small::col_sm_4
+                                                                                  +Bootstrap::Grid::ExtraSmall::col_xs_6);
     }
 
 

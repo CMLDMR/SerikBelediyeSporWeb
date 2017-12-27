@@ -19,7 +19,7 @@ Medya::MedyaWidget::MedyaWidget()
         auto container = addWidget(cpp14::make_unique<WContainerWidget>());
         container->addStyleClass(Bootstrap::Grid::row);
         container->setContentAlignment(AlignmentFlag::Center);
-        container->addWidget(cpp14::make_unique<WText>("Medya"))->addStyleClass(Bootstrap::Grid::Large::col_lg_12);
+        container->addWidget(cpp14::make_unique<WText>("Medya"))->addStyleClass(Bootstrap::Grid::Large::col_lg_12+"Haberler");
     }
 
     {
@@ -55,7 +55,7 @@ Medya::MedyaWidget::BasinWidget::BasinWidget()
     {
         auto container = addWidget(cpp14::make_unique<WContainerWidget>());
         container->addStyleClass(Bootstrap::Grid::row);
-        container->addWidget(cpp14::make_unique<WText>("Basın da..."));
+        container->addWidget(cpp14::make_unique<WText>("Basın da..."))->addStyleClass("medyaSubTitle");
     }
 
 
@@ -84,7 +84,7 @@ Medya::MedyaWidget::SocialWidget::SocialWidget()
     {
         auto container = addWidget(cpp14::make_unique<WContainerWidget>());
         container->addStyleClass(Bootstrap::Grid::row);
-        container->addWidget(cpp14::make_unique<WText>("Sosyal Ağ..."));
+        container->addWidget(cpp14::make_unique<WText>("Sosyal Ağ..."))->addStyleClass("medyaSubTitle");;
     }
 
 
@@ -114,7 +114,7 @@ Medya::MedyaWidget::YayinlarWidget::YayinlarWidget()
     {
         auto container = addWidget(cpp14::make_unique<WContainerWidget>());
         container->addStyleClass(Bootstrap::Grid::row);
-        container->addWidget(cpp14::make_unique<WText>("Yayınlar..."));
+        container->addWidget(cpp14::make_unique<WText>("Yayınlar..."))->addStyleClass("medyaSubTitle");
     }
 
 
@@ -126,33 +126,33 @@ Medya::MedyaWidget::YayinlarWidget::YayinlarWidget()
 
         container->addWidget(cpp14::make_unique<item>("img/dergi/1.jpg"))->addStyleClass(Bootstrap::Grid::Large::col_lg_6
                                                                         +Bootstrap::Grid::Medium::col_md_12
-                                                                        +Bootstrap::Grid::Small::col_sm_12
-                                                                        +Bootstrap::Grid::ExtraSmall::col_xs_12);
+                                                                        +Bootstrap::Grid::Small::col_sm_4
+                                                                        +Bootstrap::Grid::ExtraSmall::col_xs_6);
 
         container->addWidget(cpp14::make_unique<item>("img/dergi/2.jpg"))->addStyleClass(Bootstrap::Grid::Large::col_lg_6
                                                                         +Bootstrap::Grid::Medium::col_md_12
-                                                                        +Bootstrap::Grid::Small::col_sm_12
-                                                                        +Bootstrap::Grid::ExtraSmall::col_xs_12);
+                                                                        +Bootstrap::Grid::Small::col_sm_4
+                                                                        +Bootstrap::Grid::ExtraSmall::col_xs_6);
 
         container->addWidget(cpp14::make_unique<item>("img/dergi/3.jpg"))->addStyleClass(Bootstrap::Grid::Large::col_lg_6
                                                                         +Bootstrap::Grid::Medium::col_md_12
-                                                                        +Bootstrap::Grid::Small::col_sm_12
-                                                                        +Bootstrap::Grid::ExtraSmall::col_xs_12);
+                                                                        +Bootstrap::Grid::Small::col_sm_4
+                                                                        +Bootstrap::Grid::ExtraSmall::col_xs_6);
 
         container->addWidget(cpp14::make_unique<item>("img/dergi/4.jpg"))->addStyleClass(Bootstrap::Grid::Large::col_lg_6
                                                                         +Bootstrap::Grid::Medium::col_md_12
-                                                                        +Bootstrap::Grid::Small::col_sm_12
-                                                                        +Bootstrap::Grid::ExtraSmall::col_xs_12);
+                                                                        +Bootstrap::Grid::Small::col_sm_4
+                                                                        +Bootstrap::Grid::ExtraSmall::col_xs_6);
 
         container->addWidget(cpp14::make_unique<item>("img/dergi/5.jpg"))->addStyleClass(Bootstrap::Grid::Large::col_lg_6
                                                                         +Bootstrap::Grid::Medium::col_md_12
-                                                                        +Bootstrap::Grid::Small::col_sm_12
-                                                                        +Bootstrap::Grid::ExtraSmall::col_xs_12);
+                                                                        +Bootstrap::Grid::Small::col_sm_4
+                                                                        +Bootstrap::Grid::ExtraSmall::col_xs_6);
 
         container->addWidget(cpp14::make_unique<item>("img/dergi/6.jpg"))->addStyleClass(Bootstrap::Grid::Large::col_lg_6
                                                                         +Bootstrap::Grid::Medium::col_md_12
-                                                                        +Bootstrap::Grid::Small::col_sm_12
-                                                                        +Bootstrap::Grid::ExtraSmall::col_xs_12);
+                                                                        +Bootstrap::Grid::Small::col_sm_4
+                                                                        +Bootstrap::Grid::ExtraSmall::col_xs_6);
 
     }
 }
@@ -180,6 +180,8 @@ Medya::MedyaWidget::SocialWidget::tweeteritem::tweeteritem()
 Medya::MedyaWidget::YayinlarWidget::item::item(std::string path)
 {
 
+    decorationStyle().setBackgroundColor(WColor(qrand()%100+155,qrand()%100+155,qrand()%100+155));
+//    decorationStyle().setBackgroundColor()
     setContentAlignment(AlignmentFlag::Center);
     addStyleClass(Bootstrap::Grid::container_fluid);
     auto container = addWidget(cpp14::make_unique<WContainerWidget>());

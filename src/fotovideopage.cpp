@@ -9,7 +9,7 @@ FotoVideo::FotoVideoPage::FotoVideoPage()
 
 FotoVideo::FotoVideoWidget::FotoVideoWidget()
 {
-    addStyleClass(Bootstrap::Grid::container_fluid+Bootstrap::Test::border1px);
+    addStyleClass(Bootstrap::Grid::container_fluid);
 
     auto container = addWidget(cpp14::make_unique<WContainerWidget>());
     container->addStyleClass(Bootstrap::Grid::row);
@@ -24,14 +24,14 @@ FotoVideo::FotoVideoWidget::FotoVideoWidget()
 
 FotoVideo::FotoVideoWidget::FotoWidget::FotoWidget()
 {
-    addStyleClass(Bootstrap::Grid::container_fluid+Bootstrap::Test::border1px);
+    addStyleClass(Bootstrap::Grid::container_fluid);
     setContentAlignment(AlignmentFlag::Center);
 
 
     {
         auto container = addWidget(cpp14::make_unique<WContainerWidget>());
         container->addStyleClass(Bootstrap::Grid::row);
-        container->addWidget(cpp14::make_unique<WText>("Foto Widget"))->addStyleClass(Bootstrap::Grid::Large::col_lg_12);
+        container->addWidget(cpp14::make_unique<WText>("Fotoğraf Galeri"))->addStyleClass(Bootstrap::Grid::Large::col_lg_12+"fotoSubTitle");
     }
 
 
@@ -51,14 +51,14 @@ FotoVideo::FotoVideoWidget::FotoWidget::FotoWidget()
 
 FotoVideo::FotoVideoWidget::VideoWidget::VideoWidget()
 {
-    addStyleClass(Bootstrap::Grid::container_fluid+Bootstrap::Test::border1px);
+    addStyleClass(Bootstrap::Grid::container_fluid);
     setContentAlignment(AlignmentFlag::Center);
 
 
     {
         auto container = addWidget(cpp14::make_unique<WContainerWidget>());
         container->addStyleClass(Bootstrap::Grid::row);
-        container->addWidget(cpp14::make_unique<WText>("Video Widget"))->addStyleClass(Bootstrap::Grid::Large::col_lg_12);
+        container->addWidget(cpp14::make_unique<WText>("Video Galeri"))->addStyleClass(Bootstrap::Grid::Large::col_lg_12+"fotoSubTitle");
     }
 
 

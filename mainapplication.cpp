@@ -11,11 +11,21 @@
 #include "src/fotovideopage.h"
 #include "src/basinpage.h"
 
+#include "databasekeys.h"
+
 
 MainApplication::MainApplication(const Wt::WEnvironment &env)
     :WApplication(env),whChanged(this,"whChanged"),_OrientationChanged(this,"_OrientationChanged"),
       _PixelRatio(this,"_PixelRatio")
 {
+
+    try {
+        mClient = new mongocxx::client(mongocxx::uri("mongodb://spor:Aa<05358564091@192.168.0.215:27018/?authSource=SerikSpor"));
+    } catch (mongocxx::exception& e) {
+        con << "MongoDB Connection Error: " << e.what() << std::endl;
+    }
+
+    db = mClient->database(DataBaseKeys::DataBase::SerikSpor);
 
     p_wtTheme = std::make_shared<Wt::WBootstrapTheme>();
 
@@ -79,17 +89,20 @@ void MainApplication::init()
 
 
     {
-        mHaberlerPage = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<HaberlerPage>());
+        mHaberlerPage = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<HaberlerPage>(&db));
     }
 
-    mMainPage->getContentLayout()->addSpacing(50);
+//    mMainPage->getContentLayout()->addSpacing(50);
     {
-        mMainPage->getContentLayout()->addWidget(cpp14::make_unique<Okullar::SporOkullariWidget>(),0,AlignmentFlag::Center);
+        auto item = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<Okullar::SporOkullariWidget>(),0,AlignmentFlag::Justify);
+//        item->decorationStyle().setBackgroundColor(WColor(qrand()%75+150,qrand()%75+150,qrand()%75+150));
+
     }
 
-    mMainPage->getContentLayout()->addSpacing(50);
+//    mMainPage->getContentLayout()->addSpacing(50);
     {
-        mMainPage->getContentLayout()->addWidget(cpp14::make_unique<Okullar::AktiviteWidget>(),0,AlignmentFlag::Center);
+        auto item = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<Okullar::AktiviteWidget>(),0,AlignmentFlag::Justify);
+//        item->decorationStyle().setBackgroundColor(WColor(qrand()%75+150,qrand()%75+150,qrand()%75+150));
     }
 
 
@@ -103,6 +116,8 @@ void MainApplication::init()
         auto SubContainer = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<WContainerWidget>());
         SubContainer->setContentAlignment(AlignmentFlag::Center);
         SubContainer->addStyleClass(Bootstrap::Grid::row);
+//        SubContainer->decorationStyle().setBackgroundColor(WColor(qrand()%75+150,qrand()%75+150,qrand()%75+150));
+
 
 
         SubContainer->addWidget(cpp14::make_unique<Taraftar::TaraftarWidget>())->addStyleClass(Bootstrap::Grid::Large::col_lg_6+Bootstrap::Grid::Medium::col_md_6+Bootstrap::Grid::Small::col_sm_12+Bootstrap::Grid::ExtraSmall::col_xs_12);

@@ -7,26 +7,35 @@ Okullar::SporOkullari::SporOkullari()
 
 Okullar::SporOkullariWidget::SporOkullariWidget()
 {
-    addStyleClass(Bootstrap::Grid::container);
-    setContentAlignment(AlignmentFlag::Center);
-    auto mLayout = setLayout(cpp14::make_unique<WVBoxLayout>());
-    mLayout->setSpacing(0);
-    mLayout->setContentsMargins(0,0,0,0);
-
+    addStyleClass(Bootstrap::Grid::container_fluid);
 
     {
-        mLayout->addWidget(cpp14::make_unique<WText>("Spor Okulları"),0,AlignmentFlag::Center|AlignmentFlag::Middle)->addStyleClass("sporokullari");
+        auto mContainer = addWidget(cpp14::make_unique<WContainerWidget>());
 
-        auto container = mLayout->addWidget(cpp14::make_unique<WContainerWidget>());
-        container->addStyleClass(Bootstrap::Grid::row+Bootstrap::Test::border1px);
-        for( int i = 0 ; i < 8 ; i++ )
+        mContainer->addStyleClass(Bootstrap::Grid::container);
+
+        mContainer->setContentAlignment(AlignmentFlag::Center);
+        auto mLayout = mContainer->setLayout(cpp14::make_unique<WVBoxLayout>());
+        mLayout->setSpacing(0);
+        mLayout->setContentsMargins(0,0,0,0);
+
+
         {
-            container->addWidget(cpp14::make_unique<item>())->addStyleClass(Bootstrap::Grid::Large::col_lg_3
-                                                                            +Bootstrap::Grid::Medium::col_md_3
-                                                                            +Bootstrap::Grid::Small::col_sm_6
-                                                                            +Bootstrap::Grid::ExtraSmall::col_xs_12+"okulitemBlock");
+            mLayout->addWidget(cpp14::make_unique<WText>("Spor Okulları"),0,AlignmentFlag::Center|AlignmentFlag::Middle)->addStyleClass("sporokullari");
+
+            auto container = mLayout->addWidget(cpp14::make_unique<WContainerWidget>());
+            container->addStyleClass(Bootstrap::Grid::row+Bootstrap::Test::border1px);
+            for( int i = 0 ; i < 8 ; i++ )
+            {
+                container->addWidget(cpp14::make_unique<item>())->addStyleClass(Bootstrap::Grid::Large::col_lg_3
+                                                                                +Bootstrap::Grid::Medium::col_md_3
+                                                                                +Bootstrap::Grid::Small::col_sm_6
+                                                                                +Bootstrap::Grid::ExtraSmall::col_xs_12+"okulitemBlock");
+            }
         }
     }
+
+
 
 }
 
@@ -40,32 +49,40 @@ Okullar::SporOkullariWidget::item::item(std::string okuladi)
 
     mLayout->addWidget(cpp14::make_unique<WText>(okuladi),0,AlignmentFlag::Center|AlignmentFlag::Middle);
 
-    decorationStyle().setBackgroundColor(WColor(qrand()%255,qrand()%255,qrand()%255));
+    decorationStyle().setBackgroundColor(WColor(qrand()%50+200,qrand()%50+200,qrand()%50+200));
 }
 
 Okullar::AktiviteWidget::AktiviteWidget()
 {
-
-    addStyleClass(Bootstrap::Grid::container);
-    setContentAlignment(AlignmentFlag::Center);
-    auto mLayout = setLayout(cpp14::make_unique<WVBoxLayout>());
-    mLayout->setSpacing(0);
-    mLayout->setContentsMargins(0,0,0,0);
-
+    addStyleClass(Bootstrap::Grid::container_fluid);
 
     {
-        mLayout->addWidget(cpp14::make_unique<WText>("Aktiviteler"),0,AlignmentFlag::Center|AlignmentFlag::Middle)->addStyleClass("sporokullari");
+        auto mContainer = addWidget(cpp14::make_unique<WContainerWidget>());
 
-        auto container = mLayout->addWidget(cpp14::make_unique<WContainerWidget>());
-        container->addStyleClass(Bootstrap::Grid::row+Bootstrap::Test::border1px);
-        for( int i = 0 ; i < 8 ; i++ )
+        mContainer->addStyleClass(Bootstrap::Grid::container);
+        mContainer->setContentAlignment(AlignmentFlag::Center);
+        auto mLayout = mContainer->setLayout(cpp14::make_unique<WVBoxLayout>());
+        mLayout->setSpacing(0);
+        mLayout->setContentsMargins(0,0,0,0);
+
+
         {
-            container->addWidget(cpp14::make_unique<item>())->addStyleClass(Bootstrap::Grid::Large::col_lg_3
-                                                                            +Bootstrap::Grid::Medium::col_md_3
-                                                                            +Bootstrap::Grid::Small::col_sm_6
-                                                                            +Bootstrap::Grid::ExtraSmall::col_xs_12+"okulitemBlock");
+            mLayout->addWidget(cpp14::make_unique<WText>("Aktiviteler"),0,AlignmentFlag::Center|AlignmentFlag::Middle)->addStyleClass("sporokullari");
+
+            auto container = mLayout->addWidget(cpp14::make_unique<WContainerWidget>());
+            container->addStyleClass(Bootstrap::Grid::row+Bootstrap::Test::border1px);
+            for( int i = 0 ; i < 8 ; i++ )
+            {
+                container->addWidget(cpp14::make_unique<item>())->addStyleClass(Bootstrap::Grid::Large::col_lg_3
+                                                                                +Bootstrap::Grid::Medium::col_md_3
+                                                                                +Bootstrap::Grid::Small::col_sm_6
+                                                                                +Bootstrap::Grid::ExtraSmall::col_xs_12+"okulitemBlock");
+            }
         }
+
     }
+
+
 
 }
 
@@ -79,5 +96,5 @@ Okullar::AktiviteWidget::item::item(std::string okuladi)
 
     mLayout->addWidget(cpp14::make_unique<WText>(okuladi),0,AlignmentFlag::Center|AlignmentFlag::Middle);
 
-    decorationStyle().setBackgroundColor(WColor(qrand()%255,qrand()%255,qrand()%255));
+    decorationStyle().setBackgroundColor(WColor(qrand()%50+50,qrand()%50+100,qrand()%50+100));
 }

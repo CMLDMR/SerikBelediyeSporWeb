@@ -5,7 +5,11 @@
 
 #include <Necessary>
 
-
+using bsoncxx::builder::basic::document;
+using bsoncxx::builder::basic::kvp;
+using bsoncxx::builder::basic::array;
+using bsoncxx::builder::basic::make_document;
+using bsoncxx::builder::basic::make_array;
 
 
 using namespace Wt;
@@ -37,7 +41,7 @@ namespace Medya {
     class MedyaPage;
 };
 
-
+#define con std::cout
 
 ///
 /// \brief The MainApplication class
@@ -106,6 +110,11 @@ public:
 
 
 private:
+
+
+    mongocxx::client* mClient;
+
+    mongocxx::database db;
 
 
     ///

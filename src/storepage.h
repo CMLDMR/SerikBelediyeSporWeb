@@ -14,6 +14,7 @@
 #include <Wt/WText.h>
 #include <Wt/WBootstrapTheme.h>
 #include <Wt/WPushButton.h>
+#include <Wt/WCssDecorationStyle.h>
 
 
 #include <vector>

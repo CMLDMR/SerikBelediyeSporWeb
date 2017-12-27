@@ -13,6 +13,7 @@ Taraftar::TaraftarWidget::TaraftarWidget()
 //    addWidget(cpp14::make_unique<WText>("Sizden Gelenler..."));
     auto container = addWidget(cpp14::make_unique<WContainerWidget>());
     container->addStyleClass(Bootstrap::Grid::container_fluid);
+//    decorationStyle().setBackgroundColor(WColor(qrand()%75+150,qrand()%75+150,qrand()%75+150));
 
     {
         auto row = container->addWidget(cpp14::make_unique<WContainerWidget>());
@@ -68,6 +69,8 @@ Taraftar::DuyurularWidget::DuyurularWidget()
 {
 //    addWidget(cpp14::make_unique<WText>("Duyuru Widget"));
 //    addStyleClass(Bootstrap::Test::border1px);
+
+//    decorationStyle().setBackgroundColor(WColor(qrand()%75+150,qrand()%75+150,qrand()%75+150));
 
     auto container = addWidget(cpp14::make_unique<WContainerWidget>());
     container->addStyleClass(Bootstrap::Grid::container_fluid);

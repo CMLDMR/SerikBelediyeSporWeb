@@ -2,6 +2,8 @@
 #define HABERLERPAGE_H
 
 #include <QtCore/qglobal.h>
+#include <QString>
+#include <QRegExp>
 
 
 #include <Wt/WContainerWidget.h>
@@ -16,6 +18,16 @@
 
 #include "ToolKit/bootstrap.h"
 
+#include "mongoheaders.h"
+
+
+using bsoncxx::builder::basic::document;
+using bsoncxx::builder::basic::kvp;
+using bsoncxx::builder::basic::array;
+using bsoncxx::builder::basic::make_document;
+using bsoncxx::builder::basic::make_array;
+
+
 
 using namespace Wt;
 
@@ -26,7 +38,13 @@ class HaberWidget;
 class HaberlerPage : public WContainerWidget
 {
 public:
-    HaberlerPage();
+    HaberlerPage(mongocxx::database* _db);
+
+
+
+private:
+
+    mongocxx::database* db;
 
 
 
@@ -37,7 +55,10 @@ public:
 class LastHaber : public WContainerWidget
 {
 public:
-    LastHaber();
+    LastHaber(mongocxx::collection* _col);
+
+private:
+    mongocxx::collection* collection;
 };
 
 class HaberList : public WContainerWidget
