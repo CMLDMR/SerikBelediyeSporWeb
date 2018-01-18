@@ -23,7 +23,7 @@
 
 #include <vector>
 
-#include "ToolKit/bootstrap.h"
+#include "bootstrap.h"
 
 
 using namespace Wt;

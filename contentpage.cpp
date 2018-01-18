@@ -2,15 +2,38 @@
 
 ContentPage::ContentPage()
 {
-//    addStyleClass("content");
     setContentAlignment(AlignmentFlag::Center);
-    mLayout = setLayout(cpp14::make_unique<WVBoxLayout>());
-
+    this->initLayout();
 }
 
-WVBoxLayout *ContentPage::getContentLayout()
+WContainerWidget *ContentPage::getContentLayout()
 {
+    return mContentContainer;
+}
 
-    return mLayout;
+WContainerWidget *ContentPage::getFooterLayout()
+{
+    return  mMainContainer;
+}
 
+
+
+
+void ContentPage::initLayout()
+{
+    mLayout = setLayout(cpp14::make_unique<WVBoxLayout>());
+
+    mMainContainer = mLayout->addWidget(cpp14::make_unique<WContainerWidget>());
+    mMainContainer->setId("mMainContainer");
+
+    mContentContainer = mLayout->addWidget(cpp14::make_unique<WContainerWidget>());
+    mContentContainer->setId("mContentContainer");
+}
+
+
+
+void ContentPage::setHaber(std::string oid)
+{
+    mMainContainer->clear();
+    std::cout << "clear Layout : " << oid << std::endl;
 }

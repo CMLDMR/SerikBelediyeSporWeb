@@ -12,34 +12,39 @@ using bsoncxx::builder::basic::make_document;
 using bsoncxx::builder::basic::make_array;
 
 
+#include "V2/Header/header.h"
+#include "V2/Body/body.h"
+#include "V2/Footer/footer.h"
+
+
+
 using namespace Wt;
 
 
-class ContentPage;
-class HaberlerPage;
-class StorePage;
-class FikturPage;
-class Footer;
+//class ContentPage;
+//class HaberlerPage;
+//class StorePage;
+//class FikturPage;
 
 
-namespace Okullar {
-    class SporOkullariWidget;
-}
+//namespace Okullar {
+//    class SporOkullariWidget;
+//}
 
 
-namespace Taraftar{
-    class TaraftarPage;
-};
+//namespace Taraftar{
+//    class TaraftarPage;
+//};
 
-namespace FotoVideo {
-    class FotoVideoWidget;
-};
+//namespace FotoVideo {
+//    class FotoVideoWidget;
+//};
 
 
-namespace Medya {
-    class MedyaWidget;
-    class MedyaPage;
-};
+//namespace Medya {
+//    class MedyaWidget;
+//    class MedyaPage;
+//};
 
 #define con std::cout
 
@@ -116,6 +121,10 @@ private:
 
     mongocxx::database db;
 
+    Body::Body* body;
+    Header::Header* header;
+    Footer::Footer* footer;
+
 
     ///
     /// \brief p_wtTheme
@@ -133,33 +142,6 @@ private:
     JSignal<float> _PixelRatio;
 
 
-    ///
-    /// \brief mMainPage
-    ///
-    ContentPage* mMainPage;
-
-    ///
-    /// \brief mHaberlerPage
-    ///
-    HaberlerPage* mHaberlerPage;
-
-    ///
-    /// \brief mStorePage
-    /// Mağaza
-    StorePage* mStorePage;
-
-
-
-    ///
-    /// \brief mFiksturPage
-    ///
-    FikturPage* mFiksturPage;
-
-
-    ///
-    /// \brief Taraftar Sayfası ve İçeriği
-    ///
-    Taraftar::TaraftarPage* mTaraftarPage;
 
 
 };

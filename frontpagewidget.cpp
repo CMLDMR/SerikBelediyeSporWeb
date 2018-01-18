@@ -1,13 +1,12 @@
 #include "frontpagewidget.h"
-#include "ToolKit/bootstrap.h"
+#include "bootstrap.h"
 
 
 FrontPageWidget::FrontPageWidget()
 {
 
     setContentAlignment(AlignmentFlag::Center);
-//    setMargin(WLength::Auto,Side::Left|Side::Right);
-    addStyleClass(Bootstrap::Grid::container_fluid + "frontpagewidget" );
+    addStyleClass(Bootstrap::Grid::container_fluid );
 
 
     {
@@ -39,14 +38,14 @@ FrontPageWidget::FrontPageWidget()
 
 
     {
-        auto container = addWidget(cpp14::make_unique<WContainerWidget>());
-        container->addStyleClass("row justify-content-md-center");
-        navigation = container->addWidget(Wt::cpp14::make_unique<Wt::WNavigationBar>());
-        navigation->addStyleClass("col-sm-12 justify-content-md-center");
+//        auto container = addWidget(cpp14::make_unique<WContainerWidget>());
+//        container->addStyleClass("row justify-content-md-center");
+        navigation = addWidget(Wt::cpp14::make_unique<Wt::WNavigationBar>());
+//        navigation->addStyleClass("col-sm-12");
         navigation->setResponsive(true);
         navigation->setTitle("Serik BelediyeSpor");
         navigation->setId("navbarid");
-        this->fLoadMenu();
+//        this->fLoadMenu();
     }
 
 

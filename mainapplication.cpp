@@ -1,15 +1,6 @@
 #include "mainapplication.h"
 
-#include "contentpage.h"
-#include "ToolKit/wjavascriptslider.h"
-#include "src/haberlerpage.h"
-#include "src/storepage.h"
-#include "src/fikturpage.h"
-#include "src/footer.h"
-#include "src/taraftarpage.h"
-#include "src/sporokullari.h"
-#include "src/fotovideopage.h"
-#include "src/basinpage.h"
+
 
 #include "databasekeys.h"
 
@@ -38,131 +29,44 @@ MainApplication::MainApplication(const Wt::WEnvironment &env)
     Wt::WApplication::instance()->setTitle("Serik BelediyeSpor Resmi Web Sayfası");
 
     WApplication::useStyleSheet(WLink("css/mainPage.css"));
-    WApplication::useStyleSheet(WLink("css/test.css"));
+    WApplication::useStyleSheet(WLink("css/Kategoriler.css"));
+    WApplication::useStyleSheet(WLink("css/test.css")); // Remove After Released
 
     Wt::WApplication::instance()->useStyleSheet("resources/themes/bootstrap/3/bootstrap-theme.min.css");
-    Wt::WApplication::require("script/script.js");
 
     Wt::WApplication::instance()->setBodyClass("introMain");
 
-
-
-    WApplication::instance()->addMetaHeader("viewport","width=device.width, initial-scale=1.0");
+    WApplication::instance()->addMetaHeader("viewport","width=device-width, initial-scale=1.0");
 
     this->init();
-
-
-//    Wt::WApplication::instance()->
+    Wt::WApplication::require("script/script.js");
 
 }
 
 void MainApplication::init()
 {
-
     root()->clear();
 
-    root()->scrolled().connect(this,&MainApplication::f_Scrolled);
 
+    header = root()->addWidget(cpp14::make_unique<Header::Header>());
+    body = root()->addWidget(cpp14::make_unique<Body::Body>());
+    footer = root()->addWidget(cpp14::make_unique<Footer::Footer>());
 
-
-    root()->addStyleClass("container-fluid");
-
-
-    mMainPage = root()->addWidget(cpp14::make_unique<ContentPage>());
-
-    mMainPage->getContentLayout()->setContentsMargins(0,0,0,0);
-
-    {
-        mMainPage->getContentLayout()->addWidget(cpp14::make_unique<FrontPageWidget>(),1,AlignmentFlag::Justify);
-    }
-
-
-//    root()->setAttributeValue("onscroll","myFunction()");
-
-    {
-//        mMainPage->getContentLayout()->addWidget(cpp14::make_unique<WJavaScriptSlider>(),1,AlignmentFlag::Center);
-    }
-
-
-    //    auto slider = mLayout->addWidget(cpp14::make_unique<WJavaScriptSlider>(),1,AlignmentFlag::Center);
-
-
-
-    {
-        mHaberlerPage = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<HaberlerPage>(&db));
-    }
-
-//    mMainPage->getContentLayout()->addSpacing(50);
-    {
-        auto item = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<Okullar::SporOkullariWidget>(),0,AlignmentFlag::Justify);
-//        item->decorationStyle().setBackgroundColor(WColor(qrand()%75+150,qrand()%75+150,qrand()%75+150));
-
-    }
-
-//    mMainPage->getContentLayout()->addSpacing(50);
-    {
-        auto item = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<Okullar::AktiviteWidget>(),0,AlignmentFlag::Justify);
-//        item->decorationStyle().setBackgroundColor(WColor(qrand()%75+150,qrand()%75+150,qrand()%75+150));
-    }
-
-
-    mMainPage->getContentLayout()->addSpacing(50);
-    {
-        mFiksturPage = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<FikturPage>());
-    }
-
-    mMainPage->getContentLayout()->addSpacing(50);
-    {
-        auto SubContainer = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<WContainerWidget>());
-        SubContainer->setContentAlignment(AlignmentFlag::Center);
-        SubContainer->addStyleClass(Bootstrap::Grid::row);
-//        SubContainer->decorationStyle().setBackgroundColor(WColor(qrand()%75+150,qrand()%75+150,qrand()%75+150));
-
-
-
-        SubContainer->addWidget(cpp14::make_unique<Taraftar::TaraftarWidget>())->addStyleClass(Bootstrap::Grid::Large::col_lg_6+Bootstrap::Grid::Medium::col_md_6+Bootstrap::Grid::Small::col_sm_12+Bootstrap::Grid::ExtraSmall::col_xs_12);
-
-//        SubContainer->addWidget(cpp14::make_unique<Taraftar::FaceBookWidget>())->addStyleClass(Bootstrap::Grid::Large::col_lg_4+Bootstrap::Grid::Medium::col_md_6+Bootstrap::Grid::Small::col_sm_12+Bootstrap::Grid::ExtraSmall::col_xs_12);
-
-        SubContainer->addWidget(cpp14::make_unique<Taraftar::DuyurularWidget>())->addStyleClass(Bootstrap::Grid::Large::col_lg_6+Bootstrap::Grid::Medium::col_md_6+Bootstrap::Grid::Small::col_sm_12+Bootstrap::Grid::ExtraSmall::col_xs_12);
-
-    }
-
-    mMainPage->getContentLayout()->addSpacing(50);
-    {
-        mMainPage->getContentLayout()->addWidget(cpp14::make_unique<Medya::MedyaWidget>());
-    }
-
-    mMainPage->getContentLayout()->addSpacing(50);
-    {
-        mMainPage->getContentLayout()->addWidget(cpp14::make_unique<FotoVideo::FotoVideoWidget>());
-    }
-
-
-    mMainPage->getContentLayout()->addSpacing(50);
-    {
-        mStorePage = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<StorePage>());
-    }
-
-    mMainPage->getContentLayout()->addSpacing(50);
-    {
-        mMainPage->getContentLayout()->addWidget(cpp14::make_unique<FooterSpace::Footer>());
-    }
+    header->mGetAnaSayfa().connect(body,&Body::Body::initBody);
+    header->mGetKategoriler().connect(body,&Body::Body::initKategoriler);
+    header->mGetTaraftar().connect(body,&Body::Body::initTaraftar);
+    header->mGetOkullar().connect(body,&Body::Body::initOkullar);
+    header->mGetStore().connect(body,&Body::Body::initStore);
 
 
 
 
 
-
-
-
-
-
-    auto device0 = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<WText>("col-lg--->"));
-    auto device1 = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<WText>("col-md--->"));
-    auto device2 = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<WText>("col-sm--->"));
-    auto device3 = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<WText>("col-sm--->"));
-    auto device4 = mMainPage->getContentLayout()->addWidget(cpp14::make_unique<WText>("col-xs--->"));
+    auto device0 = root()->addWidget(cpp14::make_unique<WText>("col-lg--->"));
+    auto device1 = root()->addWidget(cpp14::make_unique<WText>("col-md--->"));
+    auto device2 = root()->addWidget(cpp14::make_unique<WText>("col-sm--->"));
+    auto device3 = root()->addWidget(cpp14::make_unique<WText>("col-ssm--->"));
+    auto device4 = root()->addWidget(cpp14::make_unique<WText>("col-xs--->"));
 
     device0->addStyleClass("device0");
     device1->addStyleClass("device1");

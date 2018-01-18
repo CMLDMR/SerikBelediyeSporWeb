@@ -3,10 +3,32 @@
 
 #include <QtCore/qglobal.h>
 
-class StoreWidget : public WContainerWidget
-{
-public:
-    StoreWidget();
-};
+#include <Wt/WContainerWidget.h>
+#include <Wt/WText.h>
+#include <Wt/WBreak.h>
+#include <Wt/WMenu.h>
+#include <Wt/WStackedWidget.h>
+#include <Wt/WTextArea.h>
+#include <Wt/WCssDecorationStyle.h>
+#include <Wt/WVBoxLayout.h>
+#include <Wt/WHBoxLayout.h>
+
+
+
+#include "bootstrap.h"
+
+
+using namespace Wt;
+
+namespace Store {
+
+    class StoreWidget : public WContainerWidget
+    {
+    public:
+        StoreWidget();
+    };
+
+}
+
 
 #endif // STOREWIDGET_H

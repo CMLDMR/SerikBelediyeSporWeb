@@ -1,5 +1,5 @@
 #include "storepage.h"
-#include "ToolKit/bootstrap.h"
+#include "bootstrap.h"
 
 StorePage::StorePage()
 {
