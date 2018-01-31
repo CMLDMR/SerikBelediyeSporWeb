@@ -42,12 +42,19 @@ namespace Header {
             Signal<NoClass> &mGetTaraftar();
             Signal<NoClass> &mGetOkullar();
             Signal<NoClass> &mGetStore();
+            Signal<NoClass> &mGetTesis();
+            Signal<NoClass> &mGetHakkimizda();
+            Signal<NoClass> &mGetKupalar();
+            Signal<NoClass> &mGetKurumsal();
+            Signal<NoClass> &mGetBasin();
+            Signal<NoClass> &mGetSignUp();
+            Signal<NoClass> &mGetSignIn();
 
 
 
     private:
-        Wt::WNavigationBar *navigation;
 
+        Wt::WNavigationBar *navigation;
 
         Signal<NoClass> mAnaSayfa;
         Signal<NoClass> mKategoriSignal;
@@ -55,6 +62,15 @@ namespace Header {
         Signal<NoClass> mOkullarSignal;
 
         Signal<NoClass> mStoreSignal;
+        Signal<NoClass> mTesislerimiz;
+        Signal<NoClass> mHakkimizda;
+
+        Signal<NoClass> mKupalar;
+        Signal<NoClass> mKurumsal;
+        Signal<NoClass> mBasin;
+
+        Signal<NoClass> mSignUp;
+        Signal<NoClass> mSignin;
 
 
     };

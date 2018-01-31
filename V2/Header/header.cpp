@@ -46,28 +46,41 @@ Header::Header::Header()
             {
                 std::unique_ptr<WPushButton> homeBtn = std::make_unique<WPushButton>("Kupalar");
                 homeBtn->addStyleClass("topBtn");
+                homeBtn->clicked().connect([=](){
+                    mKupalar.emit(NoClass());
+                });
                 toolbar->addButton(std::move(homeBtn),AlignmentFlag::Left);
             }
             {
                 std::unique_ptr<WPushButton> homeBtn = std::make_unique<WPushButton>("Kurumsal");
                 homeBtn->addStyleClass("topBtn");
+                homeBtn->clicked().connect([=](){
+                    mKurumsal.emit(NoClass());
+                });
                 toolbar->addButton(std::move(homeBtn),AlignmentFlag::Left);
             }
             {
                 std::unique_ptr<WPushButton> homeBtn = std::make_unique<WPushButton>("Basın");
                 homeBtn->addStyleClass("topBtn");
+                homeBtn->clicked().connect([=](){
+                    mBasin.emit(NoClass());
+                });
                 toolbar->addButton(std::move(homeBtn),AlignmentFlag::Left);
             }
-
             {
                 std::unique_ptr<WPushButton> homeBtn = std::make_unique<WPushButton>("Üye Ol");
                 homeBtn->addStyleClass("topBtn");
+                homeBtn->clicked().connect([=](){
+                    mSignUp.emit(NoClass());
+                });
                 toolbar->addButton(std::move(homeBtn),AlignmentFlag::Left);
             }
-
             {
                 std::unique_ptr<WPushButton> homeBtn = std::make_unique<WPushButton>("Giriş");
                 homeBtn->addStyleClass("topBtn");
+                homeBtn->clicked().connect([=](){
+                    mSignin.emit(NoClass());
+                });
                 toolbar->addButton(std::move(homeBtn),AlignmentFlag::Left);
             }
         }
@@ -176,11 +189,17 @@ Header::Header::Header()
             {
                 std::unique_ptr<WPushButton> homeBtn = std::make_unique<WPushButton>("Tesislerimiz");
                 homeBtn->addStyleClass("topBtn topAnaSayfaHaberBtn");
+                homeBtn->clicked().connect([=](){
+                    mTesislerimiz.emit(NoClass());
+                });
                 toolbar->addButton(std::move(homeBtn),AlignmentFlag::Left);
             }
             {
                 std::unique_ptr<WPushButton> homeBtn = std::make_unique<WPushButton>("Hakkımızda");
                 homeBtn->addStyleClass("topBtn topAnaSayfaHaberBtn");
+                homeBtn->clicked().connect([=](){
+                    mHakkimizda.emit(NoClass());
+                });
                 toolbar->addButton(std::move(homeBtn),AlignmentFlag::Left);
             }
         }
@@ -295,41 +314,69 @@ void Header::Header::fLoadMenu()
         item->setMenu(std::move(popupPtr));
         leftMenu_->addItem(std::move(item));
     }
-
-
-
 }
+
 
 Signal<NoClass> &Header::Header::mGetAnaSayfa()
 {
     return this->mAnaSayfa;
-
 }
 
 Signal<NoClass> &Header::Header::mGetKategoriler()
 {
-
     return this->mKategoriSignal;
-
 }
 
 Signal<NoClass> &Header::Header::mGetTaraftar()
 {
-
     return this->mTaraftarSignal;
-
 }
 
 Signal<NoClass> &Header::Header::mGetOkullar()
 {
-
     return this->mOkullarSignal;
-
 }
 
 Signal<NoClass> &Header::Header::mGetStore()
 {
-
     return this->mStoreSignal;
+}
 
+Signal<NoClass> &Header::Header::mGetTesis()
+{
+    return this->mTesislerimiz;
+}
+
+Signal<NoClass> &Header::Header::mGetHakkimizda()
+{
+    return this->mHakkimizda;
+}
+
+Signal<NoClass> &Header::Header::mGetKupalar()
+{
+    return this->mKupalar;
+}
+
+Signal<NoClass> &Header::Header::mGetKurumsal()
+{
+    return this->mKurumsal;
+}
+
+Signal<NoClass> &Header::Header::mGetBasin()
+{
+
+    return this->mBasin;
+
+}
+
+Signal<NoClass> &Header::Header::mGetSignUp()
+{
+
+    return this->mSignUp;
+
+}
+
+Signal<NoClass> &Header::Header::mGetSignIn()
+{
+    return this->mSignin;
 }

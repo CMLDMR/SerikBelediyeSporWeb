@@ -35,7 +35,13 @@ SOURCES += main.cpp \
     V2/Body/SubWidget/kategorilerwidget.cpp \
     V2/Body/SubWidget/taraftarwidget.cpp \
     V2/Body/SubWidget/okullarwidget.cpp \
-    V2/Body/SubWidget/storewidget.cpp
+    V2/Body/SubWidget/storewidget.cpp \
+    V2/Body/SubWidget/tesislerimizwidget.cpp \
+    V2/Body/SubWidget/hakkimizdawidget.cpp \
+    V2/Body/SubWidget/kupalarwidget.cpp \
+    V2/Body/SubWidget/kurumsalwidget.cpp \
+    V2/Body/SubWidget/basinwidget.cpp \
+    V2/Body/SubWidget/signupwidget.cpp
 
 HEADERS += \
     mainapplication.h \
@@ -58,7 +64,14 @@ HEADERS += \
     V2/Body/SubWidget/kategorilerwidget.h \
     V2/Body/SubWidget/taraftarwidget.h \
     V2/Body/SubWidget/okullarwidget.h \
-    V2/Body/SubWidget/storewidget.h
+    V2/Body/SubWidget/storewidget.h \
+    V2/Body/SubWidget/tesislerimizwidget.h \
+    ../../Comman/inlinestyle.h \
+    V2/Body/SubWidget/hakkimizdawidget.h \
+    V2/Body/SubWidget/kupalarwidget.h \
+    V2/Body/SubWidget/kurumsalwidget.h \
+    V2/Body/SubWidget/basinwidget.h \
+    V2/Body/SubWidget/signupwidget.h
 
 
 

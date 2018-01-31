@@ -36,6 +36,7 @@ MainApplication::MainApplication(const Wt::WEnvironment &env)
 
     Wt::WApplication::instance()->setBodyClass("introMain");
 
+
     WApplication::instance()->addMetaHeader("viewport","width=device-width, initial-scale=1.0");
 
     this->init();
@@ -49,7 +50,7 @@ void MainApplication::init()
 
 
     header = root()->addWidget(cpp14::make_unique<Header::Header>());
-    body = root()->addWidget(cpp14::make_unique<Body::Body>());
+    body = root()->addWidget(cpp14::make_unique<Body::Body>(&db));
     footer = root()->addWidget(cpp14::make_unique<Footer::Footer>());
 
     header->mGetAnaSayfa().connect(body,&Body::Body::initBody);
@@ -57,6 +58,13 @@ void MainApplication::init()
     header->mGetTaraftar().connect(body,&Body::Body::initTaraftar);
     header->mGetOkullar().connect(body,&Body::Body::initOkullar);
     header->mGetStore().connect(body,&Body::Body::initStore);
+    header->mGetTesis().connect(body,&Body::Body::initTesis);
+    header->mGetHakkimizda().connect(body,&Body::Body::initHakkimizda);
+    header->mGetKupalar().connect(body,&Body::Body::initKupalar);
+    header->mGetKurumsal().connect(body,&Body::Body::initKurumsal);
+    header->mGetBasin().connect(body,&Body::Body::initBasin);
+    header->mGetSignUp().connect(body,&Body::Body::initSignUp);
+    header->mGetSignIn().connect(body,&Body::Body::initSignIn);
 
 
 
