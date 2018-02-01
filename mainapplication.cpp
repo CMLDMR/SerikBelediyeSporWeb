@@ -66,6 +66,8 @@ void MainApplication::init()
     header->mGetSignUp().connect(body,&Body::Body::initSignUp);
     header->mGetSignIn().connect(body,&Body::Body::initSignIn);
 
+    body->mGetSiginSuccess().connect(header,&Header::Header::UserId);
+
 
 
 

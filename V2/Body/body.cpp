@@ -10,6 +10,7 @@ Body::Body::Body(mongocxx::database *_db)
 
     HaberlerCol = db->collection(DataBaseKeys::Haberler::collection);
     DuyurularCol = db->collection(DataBaseKeys::Duyurular::collection);
+    UserCol = db->collection(DataBaseKeys::Userinfo::collection);
 
     this->initBody();
 }
@@ -29,9 +30,9 @@ void Body::Body::initBody()
     mDuyuru = SubContainer->addWidget(cpp14::make_unique<Duyurular>(&DuyurularCol));
     mDuyuru->mGetOid().connect(this,&Body::setDuyuruDetail);
 
-    mainContainer->addWidget(cpp14::make_unique<PhotoVideo>());
+//    mainContainer->addWidget(cpp14::make_unique<PhotoVideo>());
     mainContainer->addWidget(cpp14::make_unique<Kategoriler>());
-    mainContainer->addWidget(cpp14::make_unique<Ozellerimiz>());
+//    mainContainer->addWidget(cpp14::make_unique<Ozellerimiz>());
 }
 
 void Body::Body::initKategoriler()
@@ -98,29 +99,30 @@ void Body::Body::initKupalar()
 void Body::Body::initKurumsal()
 {
     mainContainer->clear();
-
     mainContainer->addWidget(cpp14::make_unique<Kurumsal::KurumsalWidget>());
 }
 
 void Body::Body::initBasin()
 {
     mainContainer->clear();
-
     mainContainer->addWidget(cpp14::make_unique<Basin::BasinWidget>());
 }
 
 void Body::Body::initSignUp()
 {
     mainContainer->clear();
-
-    mainContainer->addWidget(cpp14::make_unique<User::SignUpWidget>());
+    auto item = mainContainer->addWidget(cpp14::make_unique<User::SignUpWidget>(&UserCol));
+    item->mGetSuccessSignUp().connect(this,&Body::Body::initSignIn);
 }
 
 void Body::Body::initSignIn()
 {
     mainContainer->clear();
-
-    mainContainer->addWidget(cpp14::make_unique<User::SigninWidget>());
+    mSiginWidget = mainContainer->addWidget(cpp14::make_unique<User::SigninWidget>(&UserCol));
+    mSiginWidget->mGetSiginSuccess().connect([=](DataBaseKeys::Userinfo::User user){
+        this->mSigninSuccess.emit(user);
+        std::cout << "Signin Success: " << user.tel << std::endl;
+    });
 }
 
 void Body::Body::setHaberDetail(std::string oid)
@@ -128,7 +130,7 @@ void Body::Body::setHaberDetail(std::string oid)
 
     mainContainer->clear();
 
-    std::cout << "HABER: " << oid << std::endl;
+//    std::cout << "HABER: " << oid << std::endl;
 
     auto filter = document{};
     auto uptDod = document{};
@@ -331,6 +333,11 @@ void Body::Body::setDuyuruDetail(std::string oid)
         mainContainer->addWidget(cpp14::make_unique<WText>(WString("Error: {1}").arg(e.what())));
     }
 
+}
+
+Signal<DataBaseKeys::Userinfo::User> &Body::Body::mGetSiginSuccess()
+{
+    return this->mSigninSuccess;
 }
 
 std::string Body::Body::downloadifNotExist(std::string oid)
@@ -982,7 +989,7 @@ Body::Kategoriler::Kategoriler()
 //    addItem("Basketbol","img/8.jpg","Kupalarımız");
 //    addItem("Voleybol","img/9.jpg","Tarihimiz");
     addItem("Hentbol","img/8.jpg","Tarihimiz");
-    addItem("Diğer","img/9.jpg","Tarihimiz");
+//    addItem("Diğer","img/9.jpg","Tarihimiz");
 
 }
 
@@ -994,7 +1001,7 @@ void Body::Kategoriler::addItem(std::string title,std::string imgPath, std::stri
 //    container->setWidth(250);
     container->setPadding(0,AllSides);
     container->setMargin(10,AllSides);
-    container->addStyleClass(Bootstrap::Grid::Large::col_lg_3+"KategoriItem");
+    container->addStyleClass(Bootstrap::Grid::Large::col_lg_4+"KategoriItem");
 
     container->setAttributeValue("style","background-image: url("+imgPath+"); background-repeat: no-repeat; background-size:cover;");
 

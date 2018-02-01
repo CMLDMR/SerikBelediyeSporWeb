@@ -68,6 +68,7 @@ namespace Body {
         WContainerWidget *mainContainer;
 
         WContainerWidget *SubContainer;
+        User::SigninWidget* mSiginWidget;
 
         void initBody();
 
@@ -87,17 +88,22 @@ namespace Body {
         void setHaberDetail(std::string oid);
         void setDuyuruDetail(std::string oid);
 
+        Signal<DataBaseKeys::Userinfo::User> &mGetSiginSuccess();
+
     private:
         mongocxx::database* db;
 
         mongocxx::collection HaberlerCol;
         mongocxx::collection DuyurularCol;
+        mongocxx::collection UserCol;
 
         MainHaber* mMainHaber;
         Duyurular* mDuyuru;
 
         std::string downloadifNotExist(std::string oid);
         void downloadHtmlimg(std::string oid);
+
+        Signal<DataBaseKeys::Userinfo::User> mSigninSuccess;
     };
 
 

@@ -43,30 +43,30 @@ Header::Header::Header()
             toolbarCOntainer->setContentAlignment(AlignmentFlag::Right);
 
             auto toolbar = toolbarCOntainer->addWidget(cpp14::make_unique<WToolBar>());
-            {
-                std::unique_ptr<WPushButton> homeBtn = std::make_unique<WPushButton>("Kupalar");
-                homeBtn->addStyleClass("topBtn");
-                homeBtn->clicked().connect([=](){
-                    mKupalar.emit(NoClass());
-                });
-                toolbar->addButton(std::move(homeBtn),AlignmentFlag::Left);
-            }
-            {
-                std::unique_ptr<WPushButton> homeBtn = std::make_unique<WPushButton>("Kurumsal");
-                homeBtn->addStyleClass("topBtn");
-                homeBtn->clicked().connect([=](){
-                    mKurumsal.emit(NoClass());
-                });
-                toolbar->addButton(std::move(homeBtn),AlignmentFlag::Left);
-            }
-            {
-                std::unique_ptr<WPushButton> homeBtn = std::make_unique<WPushButton>("Basın");
-                homeBtn->addStyleClass("topBtn");
-                homeBtn->clicked().connect([=](){
-                    mBasin.emit(NoClass());
-                });
-                toolbar->addButton(std::move(homeBtn),AlignmentFlag::Left);
-            }
+//            {
+//                std::unique_ptr<WPushButton> homeBtn = std::make_unique<WPushButton>("Kupalar");
+//                homeBtn->addStyleClass("topBtn");
+//                homeBtn->clicked().connect([=](){
+//                    mKupalar.emit(NoClass());
+//                });
+//                toolbar->addButton(std::move(homeBtn),AlignmentFlag::Left);
+//            }
+//            {
+//                std::unique_ptr<WPushButton> homeBtn = std::make_unique<WPushButton>("Kurumsal");
+//                homeBtn->addStyleClass("topBtn");
+//                homeBtn->clicked().connect([=](){
+//                    mKurumsal.emit(NoClass());
+//                });
+//                toolbar->addButton(std::move(homeBtn),AlignmentFlag::Left);
+//            }
+//            {
+//                std::unique_ptr<WPushButton> homeBtn = std::make_unique<WPushButton>("Basın");
+//                homeBtn->addStyleClass("topBtn");
+//                homeBtn->clicked().connect([=](){
+//                    mBasin.emit(NoClass());
+//                });
+//                toolbar->addButton(std::move(homeBtn),AlignmentFlag::Left);
+//            }
             {
                 std::unique_ptr<WPushButton> homeBtn = std::make_unique<WPushButton>("Üye Ol");
                 homeBtn->addStyleClass("topBtn");
@@ -94,13 +94,27 @@ Header::Header::Header()
 
 
     {
-        auto container = addWidget(cpp14::make_unique<WContainerWidget>());
-        container->setMaximumSize(1000,WLength::Auto);
-        container->setContentAlignment(AlignmentFlag::Left);
+        mLogoContainer = addWidget(cpp14::make_unique<WContainerWidget>());
+        mLogoContainer->setMaximumSize(1000,WLength::Auto);
+        mLogoContainer->setContentAlignment(AlignmentFlag::Left);
+//        mLogoContainer->setAttributeValue(Style::style,Style::Border::border("1px solid black"));
 
-        auto logoCont = container->addWidget(cpp14::make_unique<WImage>(WLink("icon/1.png")));
+        mLogoContainerLayout = mLogoContainer->setLayout(cpp14::make_unique<WHBoxLayout>());
+
+        auto logoCont = mLogoContainerLayout->addWidget(cpp14::make_unique<WImage>(WLink("icon/1.png")),0,AlignmentFlag::Left);
         logoCont->setMaximumSize(180,60);
         logoCont->setMinimumSize(180,60);
+
+        mUserIDContainer = mLogoContainerLayout->addWidget(cpp14::make_unique<WContainerWidget>(),0,AlignmentFlag::Right|AlignmentFlag::Middle);
+
+        auto layout = mUserIDContainer->setLayout(cpp14::make_unique<WVBoxLayout>());
+
+        userad = layout->addWidget(cpp14::make_unique<WText>(("")),0,AlignmentFlag::Center|AlignmentFlag::Middle);
+        usertel = layout->addWidget(cpp14::make_unique<WText>(("")),0,AlignmentFlag::Center|AlignmentFlag::Middle);
+
+//        auto text = layout->addWidget(cpp14::make_unique<WText>(("Cemal DEMİR - 0532 677 80 51")),0,AlignmentFlag::Right|AlignmentFlag::Middle);
+
+
     }
 
 
@@ -132,14 +146,14 @@ Header::Header::Header()
                 });
                 toolbar->addButton(std::move(homeBtn),AlignmentFlag::Left);
             }
-            {
-                std::unique_ptr<WPushButton> homeBtn = std::make_unique<WPushButton>("Taraftar");
-                homeBtn->addStyleClass("topBtn topAnaSayfaBtn");
-                homeBtn->clicked().connect([=](){
-                    mTaraftarSignal.emit(NoClass());
-                });
-                toolbar->addButton(std::move(homeBtn),AlignmentFlag::Left);
-            }
+//            {
+//                std::unique_ptr<WPushButton> homeBtn = std::make_unique<WPushButton>("Taraftar");
+//                homeBtn->addStyleClass("topBtn topAnaSayfaBtn");
+//                homeBtn->clicked().connect([=](){
+//                    mTaraftarSignal.emit(NoClass());
+//                });
+//                toolbar->addButton(std::move(homeBtn),AlignmentFlag::Left);
+//            }
 
             {
                 std::unique_ptr<WPushButton> homeBtn = std::make_unique<WPushButton>("Okullar");
@@ -172,28 +186,28 @@ Header::Header::Header()
 //                toolbar->addButton(std::move(homeBtn),AlignmentFlag::Left);
 //            }
 
-            {
-                std::unique_ptr<WPushButton> homeBtn = std::make_unique<WPushButton>("Store");
-                homeBtn->addStyleClass("topBtn topAnaSayfaHaberBtn");
-                homeBtn->clicked().connect([=](){
-                    mStoreSignal.emit(NoClass());
-                });
-                toolbar->addButton(std::move(homeBtn),AlignmentFlag::Left);
-            }
+//            {
+//                std::unique_ptr<WPushButton> homeBtn = std::make_unique<WPushButton>("Store");
+//                homeBtn->addStyleClass("topBtn topAnaSayfaHaberBtn");
+//                homeBtn->clicked().connect([=](){
+//                    mStoreSignal.emit(NoClass());
+//                });
+//                toolbar->addButton(std::move(homeBtn),AlignmentFlag::Left);
+//            }
 
 //            {
 //                std::unique_ptr<WPushButton> homeBtn = std::make_unique<WPushButton>("Nostalji");
 //                homeBtn->addStyleClass("topBtn topAnaSayfaHaberBtn");
 //                toolbar->addButton(std::move(homeBtn),AlignmentFlag::Left);
 //            }
-            {
-                std::unique_ptr<WPushButton> homeBtn = std::make_unique<WPushButton>("Tesislerimiz");
-                homeBtn->addStyleClass("topBtn topAnaSayfaHaberBtn");
-                homeBtn->clicked().connect([=](){
-                    mTesislerimiz.emit(NoClass());
-                });
-                toolbar->addButton(std::move(homeBtn),AlignmentFlag::Left);
-            }
+//            {
+//                std::unique_ptr<WPushButton> homeBtn = std::make_unique<WPushButton>("Tesislerimiz");
+//                homeBtn->addStyleClass("topBtn topAnaSayfaHaberBtn");
+//                homeBtn->clicked().connect([=](){
+//                    mTesislerimiz.emit(NoClass());
+//                });
+//                toolbar->addButton(std::move(homeBtn),AlignmentFlag::Left);
+//            }
             {
                 std::unique_ptr<WPushButton> homeBtn = std::make_unique<WPushButton>("Hakkımızda");
                 homeBtn->addStyleClass("topBtn topAnaSayfaHaberBtn");
@@ -379,4 +393,22 @@ Signal<NoClass> &Header::Header::mGetSignUp()
 Signal<NoClass> &Header::Header::mGetSignIn()
 {
     return this->mSignin;
+}
+
+void Header::Header::UserId(DataBaseKeys::Userinfo::User user)
+{
+//    mUserIDContainer->clear();
+
+//    mUserIDContainer->setId("MUSerID");
+
+    std::cout << "Header User Id: " << user.tel << std::endl;
+
+    userad->setText(user.ad+" "+user.soyad);
+    usertel->setText(user.tel);
+
+//    auto layout = mUserIDContainer->setLayout(cpp14::make_unique<WVBoxLayout>());
+
+//    layout->addWidget(cpp14::make_unique<WText>((user.ad+" "+user.soyad)),0,AlignmentFlag::Center|AlignmentFlag::Middle);
+//    layout->addWidget(cpp14::make_unique<WText>((user.tel)),0,AlignmentFlag::Center|AlignmentFlag::Middle);
+
 }

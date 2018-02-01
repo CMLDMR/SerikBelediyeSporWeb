@@ -23,6 +23,7 @@
 
 #include "databasekeys.h"
 #include "bootstrap.h"
+#include "inlinestyle.h"
 
 
 using namespace Wt;
@@ -35,26 +36,36 @@ namespace Header {
         Header();
 
 
-            void fLoadMenu();
+        void fLoadMenu();
 
-            Signal<NoClass> &mGetAnaSayfa();
-            Signal<NoClass> &mGetKategoriler();
-            Signal<NoClass> &mGetTaraftar();
-            Signal<NoClass> &mGetOkullar();
-            Signal<NoClass> &mGetStore();
-            Signal<NoClass> &mGetTesis();
-            Signal<NoClass> &mGetHakkimizda();
-            Signal<NoClass> &mGetKupalar();
-            Signal<NoClass> &mGetKurumsal();
-            Signal<NoClass> &mGetBasin();
-            Signal<NoClass> &mGetSignUp();
-            Signal<NoClass> &mGetSignIn();
+        Signal<NoClass> &mGetAnaSayfa();
+        Signal<NoClass> &mGetKategoriler();
+        Signal<NoClass> &mGetTaraftar();
+        Signal<NoClass> &mGetOkullar();
+        Signal<NoClass> &mGetStore();
+        Signal<NoClass> &mGetTesis();
+        Signal<NoClass> &mGetHakkimizda();
+        Signal<NoClass> &mGetKupalar();
+        Signal<NoClass> &mGetKurumsal();
+        Signal<NoClass> &mGetBasin();
+        Signal<NoClass> &mGetSignUp();
+        Signal<NoClass> &mGetSignIn();
+
+        void UserId(DataBaseKeys::Userinfo::User user);
+
+
+
 
 
 
     private:
 
         Wt::WNavigationBar *navigation;
+
+        WContainerWidget* mLogoContainer;
+        WHBoxLayout* mLogoContainerLayout;
+        WContainerWidget* mUserIDContainer;
+        WText* userad,*usertel;
 
         Signal<NoClass> mAnaSayfa;
         Signal<NoClass> mKategoriSignal;
